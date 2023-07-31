@@ -21,3 +21,11 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+/public/img/favicon-32x32.*
+/public/img/logo.*
+/public/img/logo_icon.*
+/public/img/logo_landscape.*
+/src/public/img/favicon-32x32.*
+/src/public/img/logo.*
+/src/public/img/logo_icon.*
+/src/public/img/logo_landscape.*

@@ -1,0 +1,17 @@
+/node_modules
+/public/hot
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/storage/app/public
+/public/storage
+/public/img/favicon-32x32.*
+/public/img/logo.*
+/public/img/logo_icon.*
+/public/img/logo_landscape.*
