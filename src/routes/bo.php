@@ -47,6 +47,14 @@ Route::group(['middleware'=>'lang'],function ()
     //activity
     Route::resource('activity', 'Activity\ActivityController');
 
+    //bookroom
+    Route::resource('bookpostmo', 'Bookpostmo\BookpostmoController');
+    Route::get('bookpostmo-index-today', 'Bookpostmo\BookpostmoController@indexToday')->name('bookpostmo.index.today');
+    Route::get('bookpostmo-index-open', 'Bookpostmo\BookpostmoController@indexOpen')->name('bookpostmo.index.open');
+    Route::get('bookpostmo-index-custom', 'Bookpostmo\BookpostmoController@indexCustom')->name('bookpostmo.index.custom');
+    Route::post('bookpostmo-index-custom-post', 'Bookpostmo\BookpostmoController@indexCustomPost')->name('bookpostmo.index.custom.post');
+
+
     //Activity Support API
     Route::get('api-support-monthlybyyear/{year}', 'Activity\ActivityController@supportMonthlybyyear')->name('api.support.monthlybyyear');
     Route::get('api-incident-bycategory-monthinyear/{year}/{month}', 'Activity\ActivityController@incidentBycategoryMonthinyear')->name('api.incident.bycategory.monthinyear');

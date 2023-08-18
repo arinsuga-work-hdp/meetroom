@@ -1,2 +1,2 @@
 -- Script for database
-source dbscripts/userabsensi_view_script.sql
+source dbscripts/dbmeetroom_custom_view.sql

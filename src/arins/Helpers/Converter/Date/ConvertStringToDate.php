@@ -11,6 +11,7 @@ trait ConvertStringToDate
     {
         $result = $data;
 
+
         foreach ($config as $id => $item)
         {
             $result = ucwords(str_replace(strtolower($id), strtolower($item), strtolower($result)));
@@ -32,11 +33,9 @@ trait ConvertStringToDate
         foreach ($config as $id => $item)
         {
             $isoFormat = $this->replaceIso($isoFormat, $item);
-
         } //end loop
-        
+    
         $result = Carbon::createFromIsoFormat($format, $isoFormat);
-        //$result = Carbon::createFromIsoFormat('dddd, DD-MMMM-YYYY HH:mm:ss', $isoFormat);
 
         return $result;
     }

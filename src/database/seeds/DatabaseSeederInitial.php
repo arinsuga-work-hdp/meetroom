@@ -22,6 +22,9 @@ class DatabaseSeederInitial extends Seeder
         $this->call('RolesTableSeeder');
         $this->call('RoleUserTableSeeder');
 
+        $this->call('OrderstatusTableSeeder');
+        $this->call('RoomTableSeeder');
+                     
         $this->call('ActivitytypeTableSeeder');
         $this->call('ActivitysubtypeTableSeeder');
         $this->call('ActivitystatusTableSeeder');

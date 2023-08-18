@@ -97,7 +97,7 @@ class DashboardController extends Controller
         foreach ($absensiView as $index => $item) {
             # code...
             array_push($absensiTemp, [
-                'hari' => config('a1.date.iso.hari')[$item->tgl->dayOfWeek],
+                'hari' => config('a1.date.isoindex.hari')[$item->tgl->dayOfWeek],
                 'tanggal' => \Arins\Facades\Formater::dateMonth($item->tgl),
                 'masuk' => $item->masuk,
                 'keluar' => $item->keluar,

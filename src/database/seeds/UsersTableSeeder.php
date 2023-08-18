@@ -16,65 +16,59 @@ class UsersTableSeeder extends Seeder
         //Reset table
         DB::table('users')->delete();
 
-        //Super Admin
         DB::table('users')->insert([
             'id' => 1,
-            'name' => 'Super Admin',
-            'email' => 'superadmin@mail.com',
+            'name' => 'System Admin',
+            'email' => 'sysadmin@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),
             'bo' => true,
         ]);
 
-        //Post Admin
         DB::table('users')->insert([
             'id' => 2,
-            'name' => 'Post Admin',
-            'email' => 'postadmin@mail.com',
+            'name' => 'Admin 1',
+            'email' => 'admin1@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),
             'bo' => true,
         ]);
 
-        //Report Admin
         DB::table('users')->insert([
             'id' => 3,
-            'name' => 'Report Admin',
-            'email' => 'reportadmin@mail.com',
+            'name' => 'Admin 2',
+            'email' => 'admin2@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),
             'bo' => true,
         ]);
 
-        //guest 1
         DB::table('users')->insert([
             'id' => 4,
-            'name' => 'Guest 1',
-            'email' => 'guest1@mail.com',
+            'name' => 'Departemen Interior',
+            'email' => 'interior@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),
         ]);
 
-        //guest 2
         DB::table('users')->insert([
             'id' => 5,
-            'name' => 'Guest 2',
-            'email' => 'guest2@mail.com',
+            'name' => 'Departemen Arsitek',
+            'email' => 'arsitek@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),
         ]);
 
 
-        //Hadiprana IT
         DB::table('users')->insert([
             'id' => 6,
-            'name' => 'Arief Sunjaya',
-            'email' => 'arief_sunjaya@hadiprana.co.id',
+            'name' => 'Design and Build',
+            'email' => 'dnb@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),
@@ -82,11 +76,10 @@ class UsersTableSeeder extends Seeder
             'bo' => true,
         ]);
 
-        //Hadiprana IT
         DB::table('users')->insert([
             'id' => 7,
-            'name' => 'Hendi Pratama',
-            'email' => 'hendi.pratama@hadiprana.co.id',
+            'name' => 'Departemen IT',
+            'email' => 'it@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),
@@ -94,11 +87,10 @@ class UsersTableSeeder extends Seeder
             'bo' => true,
         ]);
 
-        //Hadiprana IT
         DB::table('users')->insert([
             'id' => 9,
-            'name' => 'Fandhi',
-            'email' => 'fandhi@hadiprana.co.id',
+            'name' => 'Departemen Keuangan',
+            'email' => 'keuangan@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),
@@ -106,11 +98,10 @@ class UsersTableSeeder extends Seeder
             'bo' => true,
         ]);
 
-        //Hadiprana IT
         DB::table('users')->insert([
             'id' => 10,
-            'name' => 'Arin',
-            'email' => 'arinsuga@hadiprana.co.id',
+            'name' => 'Departemen Umum',
+            'email' => 'umum@hadiprana.co.id',
             'email_verified_at' => now(),
             'password' => Hash::make('123'),
             'remember_token' => Str::random(10),

@@ -15,7 +15,7 @@ class RolesTableSeeder extends Seeder
         //Reset table
         DB::table('roles')->delete();
         //app->cms->1
-        $this->call('RolesCmsTableSeeder');
+        $this->call('RolesMeetRoomTableSeeder');
         
     } //end method
 } //end class

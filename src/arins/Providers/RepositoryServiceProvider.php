@@ -14,6 +14,10 @@ use Arins\Repositories\Product\ProductRepository;
 use Arins\Repositories\Event\EventRepository;
 use Arins\Repositories\News\NewsRepository;
 
+use Arins\Repositories\Orderstatus\OrderstatusRepository;
+use Arins\Repositories\Room\RoomRepository;
+use Arins\Repositories\Roomorder\RoomorderRepository;
+
 use Arins\Repositories\Activity\ActivityRepository;
 use Arins\Repositories\ActivityView\ActivityViewRepository;
 use Arins\Repositories\ActivityViewjoin\ActivityViewjoinRepository;
@@ -45,6 +49,10 @@ use Arins\Models\Productsubtype;
 use Arins\Models\Product;
 use Arins\Models\Event;
 use Arins\Models\News;
+
+use Arins\Models\Orderstatus;
+use Arins\Models\Room;
+use Arins\Models\Roomorder;
 
 use Arins\Models\Activity;
 use Arins\Models\ActivityView;
@@ -180,6 +188,39 @@ class RepositoryServiceProvider extends ServiceProvider
             }
         );
 
+        //Orderstatus
+        $this->app->bind(
+            'Arins\Repositories\Orderstatus\OrderstatusRepositoryInterface',
+            function()
+            {
+                $model = new Orderstatus();
+                $modelRepository = new OrderstatusRepository($model);
+                return $modelRepository;
+            }
+        );
+
+        //Room
+        $this->app->bind(
+            'Arins\Repositories\Room\RoomRepositoryInterface',
+            function()
+            {
+                $model = new Room();
+                $modelRepository = new RoomRepository($model);
+                return $modelRepository;
+            }
+        );
+
+
+        //Roomorder
+        $this->app->bind(
+            'Arins\Repositories\Roomorder\RoomorderRepositoryInterface',
+            function()
+            {
+                $model = new Roomorder();
+                $modelRepository = new RoomorderRepository($model);
+                return $modelRepository;
+            }
+        );
 
         //Activity
         $this->app->bind(

@@ -24,15 +24,15 @@ return [
     */
 
     'company' => [
-        'version' => '3.0',
-        'name' => 'Tasksheet',
-        'website' => 'https://Tasksheet.com/',
+        'version' => '1.0 - Beta!',
+        'name' => 'Meetroom',
+        'website' => 'https://meetroom.hd-desk.com/',
         'address' => [
             'street1' => 'Gedung tinggi lt 9 kav 12',
             'street2' => 'Jl. Gatot Raya Gatot Kaca',
             'city' => 'DKI Jakarta'
         ],
-        'copyright' => '2020 - 2021',
+        'copyright' => '2023',
         'dateformat' => 'd-m-Y'
     ],
 
@@ -194,19 +194,11 @@ return [
                 'Jm' => 'Fr',
                 'Sb' => 'Sa'
             ],
-
-            'hari' => [
-                'Minggu',
-                'Senin',
-                'Selasa',
-                'Rabu',
-                'Kamis',
-                'Jumat',
-                'Sabtu',
-            ],
-
-        
         ],
+
+        'isoindex' => [
+            'hari' => ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+        ]
     ],
 
     /*

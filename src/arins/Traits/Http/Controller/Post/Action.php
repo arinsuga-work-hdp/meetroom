@@ -14,21 +14,21 @@ trait Action
 {
     use Actionprocess, Actionresponseview, Actionresponsejson;
 
-    /** post */
+    //POST Request
     public function store(Request $request)
     {
         $processResult = $this->processStore($request);
         return $this->runResponseMethod('store', $processResult);
     }
 
-    /** post */
+    //POST Request
     public function update(Request $request, $id)
     {
         $processResult = $this->processUpdate($request, $id);
         return $this->runResponseMethod('update', $processResult, $id);
     }
 
-    /** post */
+    //POST Request
     public function destroy($id)
     {
         $processResult = $this->processDestroy($id);

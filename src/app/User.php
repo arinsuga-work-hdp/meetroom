@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->hasMany('Arins\Models\Activity');
     }
 
+    public function roomorders()
+    {
+        return $this->hasMany('Arins\Models\Roomorders');
+    }
+
     public function apps()
     {
         $ates = config('a1company.dateformat');

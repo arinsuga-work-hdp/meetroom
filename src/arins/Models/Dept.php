@@ -36,4 +36,9 @@ class Dept extends Model
         return $this->hasMany('Arins\Models\Activity');
     }
 
+    public function roomorders()
+    {
+        return $this->hasMany('Arins\Models\Roomorders');
+    }
+
 }

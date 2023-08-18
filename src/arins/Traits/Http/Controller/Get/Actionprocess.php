@@ -27,6 +27,7 @@ trait Actionprocess
         $this->viewModel = Response::viewModel();
         $this->viewModel->data = json_decode(json_encode($this->data->getInputField()));
         $this->viewModel->data->date = now();
+        
     }
 
     protected function processEdit($id)
