@@ -6,7 +6,7 @@
 
 <!-- button back -->
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('support.index') }}">
+    <a class="nav-link" href="{{ route('bookpostmo.index') }}">
         <i class="fas fa-lg fa-arrow-left"></i>
     </a>
 </li>
@@ -17,56 +17,45 @@
     </a>
 </li> -->
 
-@if ($viewModel->data->activitystatus_id == 3)
+@if ($viewModel->data->orderstatus_id == 3)
     <!-- button Reopen -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('support.reopen', ['support' => $viewModel->data->id]) }}">
+    <!-- <li class="nav-item">
+        <a class="nav-link" href="{{ route('bookpostmo.reopen', ['bookpostmo' => $viewModel->data->id]) }}">
             <span style="font-weight: bold;">Reopen</span>
         </a>
-    </li>
+    </li> -->
 @endif
 
-@if ($viewModel->data->activitystatus_id == 1)
+@if ($viewModel->data->orderstatus_id == 1)
 <!-- button close -->
 <li class="nav-item">
 
-    <!-- <a class="nav-link" href="{{ route('support.close', ['support' => $viewModel->data->id]) }}">
-        <span style="font-weight: bold;">Close</span>
-    </a> -->
-
     <a  onclick="event.preventDefault();"
-        data-toggle="modal" data-target="#modal-close"
+        data-toggle="modal" data-target="#modal-approve"
         class="nav-link" href="#"
-    ><span style="font-weight: bold;">Close</span></a>
+    ><span style="font-weight: bold;">Approve</span></a>
 
 </li>
 <!-- button pending -->
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('support.pending', ['support' => $viewModel->data->id]) }}">
-        <span style="font-weight: bold;">Pending</span>
+    <a class="nav-link" href="{{ route('bookpostmo.reject', ['bookpostmo' => $viewModel->data->id]) }}">
+        <span style="font-weight: bold;">Reject</span>
     </a>
 </li>
 <!-- button cancel -->
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('support.cancel', ['support' => $viewModel->data->id]) }}">
+    <a class="nav-link" href="{{ route('bookpostmo.cancel', ['bookpostmo' => $viewModel->data->id]) }}">
         <span style="font-weight: bold;">Cancel</span>
     </a>
 </li>
 
 <!-- button edit -->
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('support.edit', ['support' => $viewModel->data->id]) }}">
+    <a class="nav-link" href="{{ route('bookpostmo.edit', ['bookpostmo' => $viewModel->data->id]) }}">
         <i class="fas fa-lg fa-edit"></i>
     </a>
 </li>
 @endif
-
-<!-- button change Activitysubtype -->
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('support.change.activitysubtype', ['changeActivitysubtype' => $viewModel->data->id]) }}">
-        <span style="font-weight: bold;">Revisi Jenis Pengaduan</span>
-    </a>
-</li>
 
 <!-- button delete -->
 <li class="nav-item">
@@ -83,7 +72,7 @@
         <i class="fas fa-lg fa-trash"></i>
     </a>
 
-    <form id="frmData" role="form" id="frmData" method="POST" action="{{ route('support.destroy', ['support' => $viewModel->data->id]) }}">
+    <form id="frmData" role="form" id="frmData" method="POST" action="{{ route('bookpostmo.destroy', ['bookpostmo' => $viewModel->data->id]) }}">
         @csrf
         @method('DELETE')
     </form>
@@ -93,7 +82,7 @@
 @endsection
 
 @section('content')
-    @include('bo.support.data-field-items')
+    @include('bo.bookpostmo.data-field-items')
 @endsection
 
 @section('style')
@@ -113,7 +102,7 @@
         var modalClose = $("#modalClose");
         var modalCloseResolution = $("#modalCloseResolution");
 
-        function deleteActivity() {
+        function deleteOrder() {
 
             modalClose.click();
             event.preventDefault();
@@ -121,11 +110,11 @@
 
         } //end method
 
-        function closeActivity() {
+        function approveOrder() {
 
             modalCloseResolution.click();
             event.preventDefault();
-            document.getElementById('frmDataClose').submit();
+            document.getElementById('frmDataApprove').submit();
 
         } //end method
 
@@ -133,5 +122,5 @@
 
 @endsection
 
-@include('bo.support.modal-delete')    
-@include('bo.support.modal-close')    
+@include('bo.bookpostmo.modal-delete')    
+@include('bo.bookpostmo.modal-approve')    

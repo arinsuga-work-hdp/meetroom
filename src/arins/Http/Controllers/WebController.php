@@ -51,67 +51,7 @@ class WebController extends Controller
         $this->appMode = config($this->appConfig . '.mode');
         $this->aResponseData = [];
         $this->dataModel = [];
-
-        $this->controllerModes = $this->initControllerModes();
     }
-
-/**  START Codes Tobe remove  */
-
-    protected function initControllerModes()
-    {
-        return [
-            'mvc' => [
-                'response' => [
-                    'index' => 'responseViewIndex',
-                    'show' => 'responseViewShow',
-                    'create' => 'responseViewCreate',
-                    'edit' => 'responseViewEdit',
-                    'delete' => 'responseViewDelete', //Temporary not use (only prepare)
-                    'store' => ['responseViewStore0', 'responseViewStore1', 'responseViewStore2'],
-                    'update' => ['responseViewUpdate0', 'responseViewUpdate1', 'responseViewUpdate2'],
-                    'destroy' => ['responseViewDestroy0', 'responseViewDestroy1', 'responseViewDestroy2'],
-                ] //end response
-    
-                
-            ], //end mvc
-    
-            'api' => [
-                'response' => [
-                    'index' => 'responseJsonIndex',
-                    'show' => 'responseJsonShow',
-                    'create' => 'responseJsonCreate',
-                    'edit' => 'responseJsonEdit',
-                    'delete' => 'responseJsonDelete', //Temporary not use (only prepare)
-                    'store' => ['responseJsonStore0', 'responseJsonStore1', 'responseJsonStore2'],
-                    'update' => ['responseJsonUpdate0', 'responseJsonUpdate1', 'responseJsonUpdate2'],
-                    'destroy' => ['responseJsonDestroy0', 'responseJsonDestroy1', 'responseJsonDestroy2'],
-                ], //end response
-    
-                
-            ], //end api
-    
-        ];
-    }
-
-    protected function runResponseMethod($methodName, $responseType = null, $id = null)
-    {        
-        if ($responseType === null)
-        {
-            $runMethod = $this->controllerModes[config('a1.app.mode')]['response'][$methodName];
-        } else {
-            $runMethod = $this->controllerModes[config('a1.app.mode')]['response'][$methodName][$responseType];
-        }
-
-        if ($id === null)
-        {
-            return $this->$runMethod();
-        } else {
-            return $this->$runMethod($id);
-        }
-    }
-
-/**  END Codes Tobe remove  */
-
 
     //GET Request
     public function index()
@@ -153,22 +93,6 @@ class WebController extends Controller
         $this->insertDataModelToResponseData();
 
         return view($this->sViewRoot.'.create', $this->aResponseData);
-    }
-
-    //GET Request
-    public function edit($id)
-    {
-        $this->viewModel = Response::viewModel();
-        $this->viewModel->data = $this->data->find($id);
-        $this->aResponseData = [
-            'viewModel' => $this->viewModel,
-            'new' => false,
-            'fieldEnabled' => true,
-            'dataModel' => $this->dataModel
-        ];
-        $this->insertDataModelToResponseData();
-
-        return view($this->sViewRoot.'.edit', $this->aResponseData);
     }
 
     //POST Request
@@ -231,6 +155,22 @@ class WebController extends Controller
         } //end if
     }
 
+    //GET Request
+    public function edit($id)
+    {
+        $this->viewModel = Response::viewModel();
+        $this->viewModel->data = $this->data->find($id);
+        $this->aResponseData = [
+            'viewModel' => $this->viewModel,
+            'new' => false,
+            'fieldEnabled' => true,
+            'dataModel' => $this->dataModel
+        ];
+        $this->insertDataModelToResponseData();
+
+        return view($this->sViewRoot.'.edit', $this->aResponseData);
+    }
+
     //POST Request
     public function update(Request $request, $id)
     {
@@ -244,6 +184,7 @@ class WebController extends Controller
         $upload = $request->file('upload'); //upload file (image/document) ==> if included
         $imageTemp = $request->input('imageTemp'); //temporary file uploaded
         $toggleRemoveImage = $request->input('toggleRemoveImage');
+        $data = $this->transformField($data);
 
         //create temporary uploaded image
         $uploadTemp = Filex::uploadTemp($upload, $imageTemp);
@@ -261,6 +202,7 @@ class WebController extends Controller
         }
 
         if ($this->data->update($record, $data)) {
+        
             if ($uploadTemp != null)
             {
                 Filex::delete($imageOld);

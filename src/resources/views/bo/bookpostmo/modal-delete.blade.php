@@ -12,7 +12,7 @@
     </div>
     <div class="modal-footer justify-content-between">
         <button id="modalClose" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button onclick="deleteActivity();" type="button" class="btn btn-primary">Hapus</button>
+        <button onclick="deleteOrder();" type="button" class="btn btn-primary">Hapus</button>
     </div>
     </div>
     <!-- /.modal-content -->

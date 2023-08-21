@@ -54,6 +54,13 @@ Route::group(['middleware'=>'lang'],function ()
     Route::get('bookpostmo-index-custom', 'Bookpostmo\BookpostmoController@indexCustom')->name('bookpostmo.index.custom');
     Route::post('bookpostmo-index-custom-post', 'Bookpostmo\BookpostmoController@indexCustomPost')->name('bookpostmo.index.custom.post');
 
+    Route::get('bookpostmo/{approve}/approve', 'Bookpostmo\BookpostmoController@approve')->name('bookpostmo.approve');
+    Route::put('bookpostmo/{approve}/approve', 'Bookpostmo\BookpostmoController@updateApprove')->name('bookpostmo.update.approve');
+    Route::get('bookpostmo/{reject}/reject', 'Bookpostmo\BookpostmoController@reject')->name('bookpostmo.reject');
+    Route::put('bookpostmo/{reject}/reject', 'Bookpostmo\BookpostmoController@updateReject')->name('bookpostmo.update.reject');
+    Route::get('bookpostmo/{cancel}/cancel', 'Bookpostmo\BookpostmoController@cancel')->name('bookpostmo.cancel');
+    Route::put('bookpostmo/{cancel}/cancel', 'Bookpostmo\BookpostmoController@updateCancel')->name('bookpostmo.update.cancel');
+    
 
     //Activity Support API
     Route::get('api-support-monthlybyyear/{year}', 'Activity\ActivityController@supportMonthlybyyear')->name('api.support.monthlybyyear');

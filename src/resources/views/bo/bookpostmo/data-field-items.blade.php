@@ -36,37 +36,61 @@ margin-left: auto; margin-right:auto;">
       <div class="form-group">
         <label>Meeting Date</label>
         <div class="row">
-          <div class="input-group col-sm-12 col-md-6">
-            <input type="text" class="form-control date" name="meetingdt" id="meetingdt"/>
-            <div class="input-group-append">
-              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          @if ($fieldEnabled == true)
+            <div class="input-group col-sm-12 col-md-6">
+              <input type="text" class="form-control date" name="meetingdt" id="meetingdt"/>
+              <div class="input-group-append">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+              </div>
             </div>
-          </div>
+          @else
+            <div class="col-md-4 col-sm-12">
+              <input {{ $disabled }} type="text" id="meetingdt" name="meetingdt" class="form-control"
+              value="{{ ( $errors->any() ? old('meetingdt') : \Arins\Facades\Formater::date($viewModel->data->meetingdt) ) }}">
+            </div>
+          @endif
         </div>
+        <p class="text-red">{{ $errors->first('meetingdt') }}</p>
       </div>
 
       <div class="form-group">
-          <label>Start</label>
-          <div class="row">
+        <label>Start</label>
+        <div class="row">
+          @if ($fieldEnabled == true)
             <div class="input-group col-sm-12 col-md-6">
               <input type="text" class="form-control date" name="startdt" id="startdt"/>
               <div class="input-group-append">
                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
               </div>
             </div>
-          </div>
+          @else
+            <div class="col-md-4 col-sm-12">
+              <input {{ $disabled }} type="text" id="startdt" name="startdt" class="form-control"
+              value="{{ ( $errors->any() ? old('startdt') : \Arins\Facades\Formater::date($viewModel->data->startdt) ) }}">
+            </div>
+          @endif
+        </div>
+        <p class="text-red">{{ $errors->first('startdt') }}</p>
       </div> <!-- end form-group -->
 
       <div class="form-group">
-          <label>End</label>
-          <div class="row">
+        <label>End</label>
+        <div class="row">
+          @if ($fieldEnabled == true)
             <div class="input-group col-sm-12 col-md-6">
               <input type="text" class="form-control date" name="enddt" id="enddt"/>
               <div class="input-group-append">
                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
               </div>
             </div>
-          </div>
+          @else
+            <div class="col-md-4 col-sm-12">
+              <input {{ $disabled }} type="text" id="enddt" name="enddt" class="form-control"
+              value="{{ ( $errors->any() ? old('enddt') : \Arins\Facades\Formater::date($viewModel->data->enddt) ) }}">
+            </div>
+          @endif
+        </div>
+        <p class="text-red">{{ $errors->first('enddt') }}</p>
       </div> <!-- end form-group -->
 
       <div class="form-group">
@@ -88,7 +112,7 @@ margin-left: auto; margin-right:auto;">
           <input type="hidden" name="room_id" value="{{ $viewModel->data->room_id }}" readonly>
           <div class="form-group">
               @if ($viewModel->data->room_id != null)
-                <input disabled type="text" value="{{ $viewModel->data->room_id->name }}" class="form-control">
+                <input disabled type="text" value="{{ $viewModel->data->room->name }}" class="form-control">
               @else
                 <input disabled type="text" class="form-control">
               @endif
@@ -106,7 +130,7 @@ margin-left: auto; margin-right:auto;">
 
       <div class="form-group">
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" name="snack" id="snack">
+          <input type="checkbox" class="form-check-input" name="snack" id="snack" {{ ( $viewModel->data->snack == 1 ? 'checked' : '' ) }}>
           <label class="form-check-label" for="exampleCheck1">Snack</label>
         </div>
       </div>

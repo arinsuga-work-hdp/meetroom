@@ -8,6 +8,7 @@ use Auth;
 
 use Arins\Http\Controllers\WebController;
 
+use Arins\Bo\Http\Controllers\Bookpostmo\UpdateStatus;
 use Arins\Repositories\Orderstatus\OrderstatusRepositoryInterface;
 use Arins\Repositories\Room\RoomRepositoryInterface;
 use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;
@@ -16,6 +17,8 @@ use Arins\Facades\ConvertDate;
 
 class BookpostmoController extends WebController
 {
+    use UpdateStatus;
+
     protected $dataRoom;
     protected $room_id;
 
@@ -58,7 +61,7 @@ class BookpostmoController extends WebController
     public function indexOpen()
     {
         $this->viewModel = Response::viewModel();
-        $this->viewModel->data = $this->data->byStatusOpenOrderByIdAndStartdtDesc($this->order_id);
+        $this->viewModel->data = $this->data->byRoomStatusOpenOrderByIdAndStartdtDesc($this->room_id);
 
         $this->aResponseData = ['viewModel' => $this->viewModel];
 

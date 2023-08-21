@@ -77,26 +77,26 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     public function allOrderByIdDesc()
     {
-        return $this->model
-               ->orderBy('id', 'desc')
-               ->get();
+        $result = $this->model->all();
+        $result = $result->sortByDesc('id');
+
+        return $result->values()->all();
     }
 
     public function allOrderByDateAndIdDesc()
     {
-        return $this->model
-               ->orderBy('date', 'desc')
-               ->orderBy('id', 'desc')
-               ->get();
+        $result = $this->model->all();
+        $result = $result->sortByDesc('id')->orderBy('date', 'desc');
+
+        return $result->values()->all();
     }
 
     public function allOrderByDateAndIdDescTake($numberOfRecords)
     {
-        return $this->model
-               ->orderBy('date', 'desc')
-               ->orderBy('id', 'desc')
-               ->take($numberOfRecords)
-               ->get();
+        $result = $this->model->all();
+        $result = $result->sortByDesc('id')->orderBy('date', 'desc');
+
+        return $result->values()->take($numberOfRecords)->get();
     }
 
 }
