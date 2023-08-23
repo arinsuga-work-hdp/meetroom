@@ -93,9 +93,11 @@ class BookpostmoController extends WebController
     }
 
     //Overrided method
-    protected function transformField($paDataField) {
+    protected function transformFieldCreate($paDataField) {
         $dataField = $paDataField;
-        
+
+        $dataField['room_id'] = $this->room_id;
+
         if (isset($paDataField['meetingdt'])) {
             $dataField['meetingdt'] = ConvertDate::strDatetimeToDate($paDataField['meetingdt']);
         }
@@ -120,5 +122,13 @@ class BookpostmoController extends WebController
 
         return $dataField;
     }
+
+    //Overrideable method
+    protected function transformFieldEdit($paDataField) {
+        $dataField = $this->transformFieldCreate($paDataField);
+
+        return $dataField;
+    }
+
 
 }

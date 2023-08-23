@@ -28,8 +28,8 @@ margin-left: auto; margin-right:auto;">
       <div class="row">
         <div class="form-group col-md-2 col-sm-12">
           <label>Participants</label>
-          <input {{ $disabled }} type="text" id="email" name="email" class="form-control" value="{{ ( $errors->any() ? old('email') : $viewModel->data->email ) }}">
-          <p class="text-red">{{ $errors->first('email') }}</p>
+          <input {{ $disabled }} type="text" id="participants" name="participants" class="form-control" value="{{ ( $errors->any() ? old('participants') : $viewModel->data->participants ) }}">
+          <p class="text-red">{{ $errors->first('participants') }}</p>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ margin-left: auto; margin-right:auto;">
           @else
             <div class="col-md-4 col-sm-12">
               <input {{ $disabled }} type="text" id="startdt" name="startdt" class="form-control"
-              value="{{ ( $errors->any() ? old('startdt') : \Arins\Facades\Formater::date($viewModel->data->startdt) ) }}">
+              value="{{ ( $errors->any() ? old('startdt') : \Arins\Facades\Formater::time($viewModel->data->startdt) ) }}">
             </div>
           @endif
         </div>
@@ -86,40 +86,12 @@ margin-left: auto; margin-right:auto;">
           @else
             <div class="col-md-4 col-sm-12">
               <input {{ $disabled }} type="text" id="enddt" name="enddt" class="form-control"
-              value="{{ ( $errors->any() ? old('enddt') : \Arins\Facades\Formater::date($viewModel->data->enddt) ) }}">
+              value="{{ ( $errors->any() ? old('enddt') : \Arins\Facades\Formater::time($viewModel->data->enddt) ) }}">
             </div>
           @endif
         </div>
         <p class="text-red">{{ $errors->first('enddt') }}</p>
       </div> <!-- end form-group -->
-
-      <div class="form-group">
-        <label>Select Meeting Room</label>
-        @if ($fieldEnabled == true)
-          <select id="room_id" name="room_id" class="form-control select2">
-                @foreach ($room as $key => $item)
-
-                  @if ($errors->any())
-                    {{ ($item->id == old('room_id') ? $selected = 'selected' : $selected = '') }}
-                  @else
-                    {{ ( $item->id == $viewModel->data->room_id ) ? $selected = 'selected' : $selected = '' }}
-                  @endif
-                  <option {{ $selected }} value="{{ $item->id }}">{{ $item->name }}</option>
-                  
-                @endforeach
-          </select>
-        @else
-          <input type="hidden" name="room_id" value="{{ $viewModel->data->room_id }}" readonly>
-          <div class="form-group">
-              @if ($viewModel->data->room_id != null)
-                <input disabled type="text" value="{{ $viewModel->data->room->name }}" class="form-control">
-              @else
-                <input disabled type="text" class="form-control">
-              @endif
-          </div>
-        @endif
-        <p class="text-red">{{ $errors->first('room_id') }}</p>
-      </div>
 
       <!-- text input -->
       <div class="form-group">

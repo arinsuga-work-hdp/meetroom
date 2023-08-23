@@ -103,7 +103,7 @@ class WebController extends Controller
         $data = $request->only($this->data->getFillable()); //get field input
         $upload = $request->file('upload'); //upload file (image/document) ==> if included
         $imageTemp = $request->input('imageTemp'); //temporary file uploaded
-        $data = $this->transformField($data);
+        $data = $this->transformFieldCreate($data);
 
         //create temporary uploaded image
         $uploadTemp = Filex::uploadTemp($upload, $imageTemp);
@@ -184,7 +184,7 @@ class WebController extends Controller
         $upload = $request->file('upload'); //upload file (image/document) ==> if included
         $imageTemp = $request->input('imageTemp'); //temporary file uploaded
         $toggleRemoveImage = $request->input('toggleRemoveImage');
-        $data = $this->transformField($data);
+        $data = $this->transformFieldEdit($data);
 
         //create temporary uploaded image
         $uploadTemp = Filex::uploadTemp($upload, $imageTemp);
@@ -281,7 +281,14 @@ class WebController extends Controller
     }
 
     //Overrideable method
-    protected function transformField($paDataField) {
+    protected function transformFieldCreate($paDataField) {
+        $dataField = $paDataField;
+
+        return $dataField;
+    }
+
+    //Overrideable method
+    protected function transformFieldEdit($paDataField) {
         $dataField = $paDataField;
 
         return $dataField;
