@@ -5,7 +5,13 @@ interface FormaterInterface
 {
     /**
      * ======================================================
-     * 0. Time Standard 2 Methods
+     * 0. ISO
+     * ====================================================== */
+    public function iso($data, $js=false);
+
+    /**
+     * ======================================================
+     * 00. Time Standard 2 Methods
      * ====================================================== */
     public function time($data, $js=false);
     public function timeampm($data, $js=false);

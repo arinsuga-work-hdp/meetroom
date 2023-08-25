@@ -72,6 +72,7 @@ return [
     'datejs' => [
         'timezone' => 'Asia/Jakarta',
         'locale' => 'id',
+        'iso' => 'Y-m-d H:i:S',
 
         'time' => 'H:i:S',
         'timeampm' => 'G:i:S K',
@@ -109,6 +110,7 @@ return [
     'date' => [
         'timezone' => 'Asia/Jakarta',
         'locale' => 'id_ID',
+        'iso' => 'YYYY-MM-DD HH:mm:ss',
 
         'time' => 'HH:mm:ss',
         'timeampm' => 'hh:mm:ss A',

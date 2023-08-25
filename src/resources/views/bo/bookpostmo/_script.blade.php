@@ -1,9 +1,40 @@
 <script>
-    flatpickr(".date", {
-        enableTime: true,
-        dateFormat: "{{ config('a1.datejs.datetime') }}"
-    });
+    // flatpickr(".date", {
+    //     enableTime: true,
+    //     dateFormat: "{{ config('a1.datejs.datetime') }}",
+    //     defaultDate: ["2021-09-06 00:00:00"]
+    // });
     //CKEDITOR.replace( 'description' );
+
+    /** meetingdt tidak diformat lagi ke format iso
+     *  karena output sudah otomatis format iso
+     *  YYYY-MM-DD HH:mm:ss
+     */
+    flatpickr('#meetingdt', {
+        enableTime: true,
+        dateFormat: "{{ config('a1.datejs.datetime') }}",
+        defaultDate: new Date("{{ $viewModel->data->meetingdt }}")
+    });
+
+    /** startdt tidak diformat lagi ke format iso
+     *  karena output sudah otomatis format iso
+     *  YYYY-MM-DD HH:mm:ss
+     */
+    flatpickr('#startdt', {
+        enableTime: true,
+        dateFormat: "{{ config('a1.datejs.datetime') }}",
+        defaultDate: new Date("{{ $viewModel->data->startdt }}")
+    });
+
+    /** enddt tidak diformat lagi ke format iso
+     *  karena output sudah otomatis format iso
+     *  YYYY-MM-DD HH:mm:ss
+     */
+    flatpickr('#enddt', {
+        enableTime: true,
+        dateFormat: "{{ config('a1.datejs.datetime') }}",
+        defaultDate: new Date("{{ $viewModel->data->enddt }}")
+    });
 
 // window.jsPDF = window.jspdf.jsPDF;
 $(document).ready(function() {

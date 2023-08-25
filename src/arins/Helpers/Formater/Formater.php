@@ -27,7 +27,28 @@ class Formater implements FormaterInterface
 
     /**
      * ======================================================
-     * 0. Time Standard 2 Methods
+     * 0. ISO
+     * ====================================================== */
+    public function iso($data, $js=false)
+    {
+        if ( ($data != null) && ($data != ''))
+        {
+            if ($js){
+                return $data->isoFormat(config('a1.datejs.iso'));
+            } else {
+                return $data->isoFormat(config('a1.date.iso'));
+            }
+
+        }
+        else
+        {
+            return '';
+        }
+    }
+
+    /**
+     * ======================================================
+     * 00. Time Standard 2 Methods
      * ====================================================== */
     public function time($data, $js=false)
     {
