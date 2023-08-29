@@ -59,7 +59,6 @@ class WebController extends Controller
         $this->viewModel = Response::viewModel();
         $this->viewModel->data = $this->data->allOrderByIdDesc();
         $this->aResponseData = ['viewModel' => $this->viewModel];
-        $this->insertDataModelToResponseData();
 
         return view($this->sViewRoot.'.index', $this->aResponseData);
     }
@@ -74,7 +73,6 @@ class WebController extends Controller
             'new' => false,
             'fieldEnabled' => false
         ];
-        $this->insertDataModelToResponseData();
 
         return view($this->sViewRoot.'.show', $this->aResponseData);
     }
@@ -104,6 +102,11 @@ class WebController extends Controller
         $upload = $request->file('upload'); //upload file (image/document) ==> if included
         $imageTemp = $request->input('imageTemp'); //temporary file uploaded
         $data = $this->transformFieldCreate($data);
+
+        $tes = [
+            '$data' => $data,
+            '#request->input()' => $request->input()
+        ];
 
         //create temporary uploaded image
         $uploadTemp = Filex::uploadTemp($upload, $imageTemp);

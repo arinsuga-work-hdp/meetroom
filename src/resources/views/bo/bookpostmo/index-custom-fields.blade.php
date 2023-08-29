@@ -3,134 +3,76 @@
 margin-left: auto; margin-right:auto;">
     <div class="card-body">
 
+      <!-- text input -->
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="name" name="name" class="form-control">
+        <p class="text-red">{{ $errors->first('name') }}</p>
+      </div>
 
-<!-- Start Date -->
-<div class="form-group">
-  <label>Start Date Period:</label>
+      <div class="form-group">
+        <label>Meeting Date</label>
+        <div class="input-group col-sm-12 col-md-6">
+            <input type="text" class="form-control date" name="meetingdt" id="meetingdt"/>
+            <div class="input-group-append">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+      </div>
 
-    <div class="row">
+        <!-- Start Date -->
+        <div class="form-group">
+            <label>Start/End Date:</label>
+            <div class="row">
+                <div class="input-group col-sm-12 col-md-6">
+                    <input type="text" class="form-control date" name="startdt" id="startdt"/>
+                    <div class="input-group-append">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
 
-	<div class="input-group col-sm-12 col-md-6">
-		<input type="text" class="form-control date" name="startdt" id="startdt"/>
-		<div class="input-group-append">
-			<div class="input-group-text"><i class="fa fa-calendar"></i></div>
-		</div>
-	</div>
-
-	<div class="input-group col-sm-12 col-md-6">
-		<input type="text" class="form-control date" name="enddt" id="enddt"/>
-		<div class="input-group-append" >
-			<div class="input-group-text"><i class="fa fa-calendar"></i></div>
-		</div>
-	</div>
-
-    </div>
-
-</div>
-
-
-<div class="form-group">
-    <label>Status</label>
-    <select name="activitystatus_id" class="form-control select2">
-        <option selected value="">All</option>
-        @php ($selected = '')
-        @foreach ($activitystatus as $key => $item)
-
-            @if ($errors->any())
-                {{ ($item->id == old('activitystatus_id') ? $selected = 'selected' : $selected = '') }}
-            @endif
-            <option {{ $selected }} value="{{ $item->id }}">{{ $item->name }}</option>
-        
-        @endforeach
-    </select>
-    <p class="text-red">{{ $errors->first('activitystatus_id') }}</p>
-
-</div>
+                <div class="input-group col-sm-12 col-md-6">
+                    <input type="text" class="form-control date" name="enddt" id="enddt"/>
+                    <div class="input-group-append" >
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+        </div> <!-- end form-group -->
 
 
         <div class="form-group">
-            <label>Requester</label>
-            <select name="enduser_id" class="form-control select2">
+            <label>Status</label>
+            <select name="orderstatus_id" class="form-control select2">
                 <option selected value="">All</option>
                 @php ($selected = '')
-                @foreach ($enduser as $key => $item)
+                @foreach ($orderstatus as $key => $item)
 
-                @if ($errors->any())
-                    {{ ($item->id == old('enduser_id') ? $selected = 'selected' : $selected = '') }}
-                @endif
-                <option {{ $selected }} value="{{ $item->id }}">{{ $item->name }}</option>
+                    @if ($errors->any())
+                        {{ ($item->id == old('orderstatus_id') ? $selected = 'selected' : $selected = '') }}
+                    @endif
+                    <option {{ $selected }} value="{{ $item->id }}">{{ $item->name }}</option>
                 
                 @endforeach
             </select>
-            <p class="text-red">{{ $errors->first('enduser_id') }}</p>
+            <p class="text-red">{{ $errors->first('orderstatus_id') }}</p>
+        </div> <!-- end form-group -->
 
-        </div>
-
+        <!-- text input -->
         <div class="form-group">
-            <label>Teknisi</label>
-            <select name="technician_id" class="form-control select2">
-                <option selected value="">All</option>
-                @php ($selected = '')
-                @foreach ($technician as $key => $item)
+            <label>Meeting Subject</label>
+            <input type="text" id="subject" name="subject" class="form-control">
+            <p class="text-red">{{ $errors->first('subject') }}</p>
+        </div> <!-- end form-group -->
 
-                    @if ($errors->any())
-                        {{ ($item->id == old('technician_id') ? $selected = 'selected' : $selected = '') }}
-                    @endif
-                    <option {{ $selected }} value="{{ $item->id }}">{{ $item->name }}</option>
-                    
-                @endforeach
-            </select>
-            <p class="text-red">{{ $errors->first('technician_id') }}</p>
-
+      <div class="form-group">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" name="snack" id="snack">
+          <label class="form-check-label" for="snack">Snack</label>
         </div>
+      </div> <!-- end form-group -->
 
-        <div class="form-group">
-            <label>Jenis Pengaduan</label>
-            <select name="activitysubtype_id" class="form-control select2">
-                <option selected value="">All</option>
-                @php ($selected = '')
-                @foreach ($activitysubtype as $key => $item)
-                    @if ($errors->any())
-                        {{ ($item->id == old('activitysubtype_id') ? $selected = 'selected' : $selected = '') }}
-                    @endif
-                    <option {{ $selected }} value="{{ $item->id }}">{{ $item->name }}</option>
-                @endforeach
-            </select>
-            <p class="text-red">{{ $errors->first('activitysubtype_id') }}</p>
-        </div>
-
-        <div class="form-group">
-            <label>Kategori</label>
-            <select id="tasktype_id" name="tasktype_id" class="form-control select2">
-                <option selected value="">All</option>
-                @php ($selected = '')
-                @foreach ($tasktype as $key => $item)
-                    @if ($errors->any())
-                        {{ ($item->id == old('tasktype_id') ? $selected = 'selected' : $selected = '') }}
-                    @endif
-                    <option {{ $selected }} value="{{ $item->id }}">{{ $item->name }}</option>
-                @endforeach
-            </select>
-            <p class="text-red">{{ $errors->first('tasktype_id') }}</p>
-
-        </div>
-
-        <div class="form-group">
-            <label>Sub Kategori</label>
-            <select id="tasksubtype1_id" name="tasksubtype1_id" class="form-control select2">
-            </select>
-            <p class="text-red">{{ $errors->first('tasksubtype1_id') }}</p>
-        </div>
-
-        <div class="form-group">
-            <label>item</label>
-            <select id="tasksubtype2_id" name="tasksubtype2_id" class="form-control select2">
-            </select>
-            <p class="text-red">{{ $errors->first('tasksubtype2_id') }}</p>
-
-        </div>
-
-    </div>
-</div>
+    </div> <!-- end card-body -->
+</div> <!-- end card -->
 
 

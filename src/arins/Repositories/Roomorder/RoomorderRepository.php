@@ -87,4 +87,47 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
         }
     }
 
+    function byRoomCustom($id, $filter, $take=null)
+    {
+        $result = $this->model::where('room_id', $id);
+
+        //meeting date
+        if (isset($filter['meetingdt'])) {
+            $result = $result->where('meetingdt', '=', $filter['meetingdt']);
+        }
+
+        //name
+        if (isset($filter['name'])) {
+            $result = $result->where('name', $filter['name']);
+        }
+
+        //startdt - enddt
+        if (
+            isset($filter['startdt']) &&
+            isset($filter['enddt'])
+        ) {
+            $result = $result->where('startdt', '>=', $filter['startdt']);
+            $result = $result->where('enddt', '<=', $filter['enddt']);
+        }
+
+        //start date
+        if (isset($filter['startdt'])) {
+            $result = $result->where('startdt', '>=', $filter['startdt']);
+        }
+
+        //orderstatus_id
+        if (isset($filter['orderstatus_id'])) {
+            $result = $result->where('orderstatus_id', $filter['orderstatus_id']);
+        }
+        
+        
+        if ($take == null) {
+            $result = $result->get();
+        } else {
+            $result = $result->take($take)->get();
+        }
+
+        return $result;
+    }
+
 }

@@ -62,32 +62,64 @@ class BookpostmoController extends WebController
     {
         $this->viewModel = Response::viewModel();
         $this->viewModel->data = $this->data->byRoomStatusOpenOrderByIdAndStartdtDesc($this->room_id);
-
         $this->aResponseData = ['viewModel' => $this->viewModel];
 
-        foreach ($this->dataModel as $key => $value) {
-
-            $this->aResponseData[$key] = $value;
-
-        } //end loop
 
         return view($this->sViewRoot.'.index-open', $this->aResponseData);
     }
 
+    /** get */
+    public function indexCustom()
+    {
+        $this->viewModel = Response::viewModel();
+        $this->viewModel->data = json_decode(json_encode($this->data->getInputField()));
+        $this->viewModel->data->date = now();
 
+        $this->aResponseData = [
+            'viewModel' => $this->viewModel,
+            'new' => true,
+            'fieldEnabled' => true,
+        ];
+        $this->insertDataModelToResponseData();
+
+        return view($this->sViewRoot.'.index-custom', $this->aResponseData);
+    }
+
+    /** post */
+    public function indexCustomPost(Request $request)
+    {
+
+        $filter = $this->filters($request);
+
+        $this->viewModel = Response::viewModel();
+        $data = $this->data->getInputField();
+        $data['datalist'] = null;
+        $this->viewModel->data = json_decode(json_encode($data));
+        $this->viewModel->data->datalist = $this->data->byRoomCustom($this->room_id, $filter);
+        
+        $this->aResponseData = [
+            'viewModel' => $this->viewModel,
+            'new' => true,
+            'fieldEnabled' => true,
+        ];
+        $this->insertDataModelToResponseData();
+
+        return view($this->sViewRoot.'.index-custom', $this->aResponseData);
+    }
 
     protected function filters($request) {
-        $filter = json_decode(json_encode([
+
+        $data = [
+            'name' => $request->input('name'),
+            'meetingdt' => ConvertDate::strDatetimeToDate($request->input('meetingdt')),
             'startdt' => ConvertDate::strDatetimeToDate($request->input('startdt')),
             'enddt' => ConvertDate::strDatetimeToDate($request->input('enddt')),
-            'activitystatus_id' => $request->input('activitystatus_id'),
-            'enduser_id' => $request->input('enduser_id'),
-            'technician_id' => $request->input('technician_id'),
-            'activitysubtype_id' => $request->input('activitysubtype_id'),
-            'tasktype_id' => $request->input('tasktype_id'),
-            'tasksubtype1_id' => $request->input('tasksubtype1_id'),
-            'tasksubtype2_id' => $request->input('tasksubtype2_id'),
-        ]));
+            'orderstatus_id' => $request->input('orderstatus_id'),
+            'subject' => $request->input('subject'),
+            'snack' => $request->input('snack'),
+        ];
+        // $filter = json_decode(json_encode($data));
+        $filter = $data;
 
         return $filter;
     }
