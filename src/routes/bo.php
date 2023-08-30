@@ -47,13 +47,14 @@ Route::group(['middleware'=>'lang'],function ()
     //activity
     Route::resource('activity', 'Activity\ActivityController');
 
-    //bookroom
+    //bookroom postmo
     Route::resource('bookpostmo', 'Bookpostmo\BookpostmoController');
     Route::get('bookpostmo-index-today', 'Bookpostmo\BookpostmoController@indexToday')->name('bookpostmo.index.today');
     Route::get('bookpostmo-index-open', 'Bookpostmo\BookpostmoController@indexOpen')->name('bookpostmo.index.open');
     Route::get('bookpostmo-index-custom', 'Bookpostmo\BookpostmoController@indexCustom')->name('bookpostmo.index.custom');
     Route::post('bookpostmo-index-custom-post', 'Bookpostmo\BookpostmoController@indexCustomPost')->name('bookpostmo.index.custom.post');
 
+    //bookroom status postmo
     Route::get('bookpostmo/{approve}/approve', 'Bookpostmo\BookpostmoController@approve')->name('bookpostmo.approve');
     Route::put('bookpostmo/{approve}/approve', 'Bookpostmo\BookpostmoController@updateApprove')->name('bookpostmo.update.approve');
     Route::get('bookpostmo/{reject}/reject', 'Bookpostmo\BookpostmoController@reject')->name('bookpostmo.reject');
@@ -61,6 +62,20 @@ Route::group(['middleware'=>'lang'],function ()
     Route::get('bookpostmo/{cancel}/cancel', 'Bookpostmo\BookpostmoController@cancel')->name('bookpostmo.cancel');
     Route::put('bookpostmo/{cancel}/cancel', 'Bookpostmo\BookpostmoController@updateCancel')->name('bookpostmo.update.cancel');
     
+    //bookroom founder
+    Route::resource('bookfounder', 'Bookfounder\BookfounderController');
+    Route::get('bookfounder-index-today', 'Bookfounder\BookfounderController@indexToday')->name('bookfounder.index.today');
+    Route::get('bookfounder-index-open', 'Bookfounder\BookfounderController@indexOpen')->name('bookfounder.index.open');
+    Route::get('bookfounder-index-custom', 'Bookfounder\BookfounderController@indexCustom')->name('bookfounder.index.custom');
+    Route::post('bookfounder-index-custom-post', 'Bookfounder\BookfounderController@indexCustomPost')->name('bookfounder.index.custom.post');
+
+    //bookroom status founder
+    Route::get('bookfounder/{approve}/approve', 'Bookfounder\BookfounderController@approve')->name('bookfounder.approve');
+    Route::put('bookfounder/{approve}/approve', 'Bookfounder\BookfounderController@updateApprove')->name('bookfounder.update.approve');
+    Route::get('bookfounder/{reject}/reject', 'Bookfounder\BookfounderController@reject')->name('bookfounder.reject');
+    Route::put('bookfounder/{reject}/reject', 'Bookfounder\BookfounderController@updateReject')->name('bookfounder.update.reject');
+    Route::get('bookfounder/{cancel}/cancel', 'Bookfounder\BookfounderController@cancel')->name('bookfounder.cancel');
+    Route::put('bookfounder/{cancel}/cancel', 'Bookfounder\BookfounderController@updateCancel')->name('bookfounder.update.cancel');
 
     //Activity Support API
     Route::get('api-support-monthlybyyear/{year}', 'Activity\ActivityController@supportMonthlybyyear')->name('api.support.monthlybyyear');

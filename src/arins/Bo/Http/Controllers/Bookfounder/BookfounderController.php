@@ -1,6 +1,6 @@
 <?php
 
-namespace Arins\Bo\Http\Controllers\Bookpostmo;
+namespace Arins\Bo\Http\Controllers\Bookfounder;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,14 +8,14 @@ use Auth;
 
 use Arins\Http\Controllers\WebController;
 
-//use Arins\Bo\Http\Controllers\Bookpostmo\UpdateStatus;
+//use Arins\Bo\Http\Controllers\Bookfounder\UpdateStatus;
 use Arins\Repositories\Orderstatus\OrderstatusRepositoryInterface;
 use Arins\Repositories\Room\RoomRepositoryInterface;
 use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;
 use Arins\Facades\Response;
 use Arins\Facades\ConvertDate;
 
-class BookpostmoController extends WebController
+class BookfounderController extends WebController
 {
     use UpdateStatus;
 
@@ -28,8 +28,8 @@ class BookpostmoController extends WebController
     {
         if ($this->sViewName == null)
         {
-            $this->sViewName = 'bookpostmo';
-            $this->room_id = 1; //Postmo
+            $this->sViewName = 'bookfounder';
+            $this->room_id = 2; //Founder
         } //end if
 
         parent::__construct();

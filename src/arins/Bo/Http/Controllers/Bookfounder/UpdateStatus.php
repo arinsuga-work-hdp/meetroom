@@ -1,6 +1,6 @@
 <?php
 
-namespace Arins\Bo\Http\Controllers\Bookpostmo;
+namespace Arins\Bo\Http\Controllers\Bookfounder;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -36,7 +36,7 @@ trait UpdateStatus
         
     }
 
-    /** close */
+    /** approve */
     public function approve($id)
     {
         $this->viewModel = Response::viewModel();
