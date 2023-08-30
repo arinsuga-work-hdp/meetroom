@@ -77,6 +77,21 @@ Route::group(['middleware'=>'lang'],function ()
     Route::get('bookfounder/{cancel}/cancel', 'Bookfounder\BookfounderController@cancel')->name('bookfounder.cancel');
     Route::put('bookfounder/{cancel}/cancel', 'Bookfounder\BookfounderController@updateCancel')->name('bookfounder.update.cancel');
 
+    //bookroom interior
+    Route::resource('bookinterior', 'Bookinterior\BookinteriorController');
+    Route::get('bookinterior-index-today', 'Bookinterior\BookinteriorController@indexToday')->name('bookinterior.index.today');
+    Route::get('bookinterior-index-open', 'Bookinterior\BookinteriorController@indexOpen')->name('bookinterior.index.open');
+    Route::get('bookinterior-index-custom', 'Bookinterior\BookinteriorController@indexCustom')->name('bookinterior.index.custom');
+    Route::post('bookinterior-index-custom-post', 'Bookinterior\BookinteriorController@indexCustomPost')->name('bookinterior.index.custom.post');
+
+    //bookroom status interior
+    Route::get('bookinterior/{approve}/approve', 'Bookinterior\BookinteriorController@approve')->name('bookinterior.approve');
+    Route::put('bookinterior/{approve}/approve', 'Bookinterior\BookinteriorController@updateApprove')->name('bookinterior.update.approve');
+    Route::get('bookinterior/{reject}/reject', 'Bookinterior\BookinteriorController@reject')->name('bookinterior.reject');
+    Route::put('bookinterior/{reject}/reject', 'Bookinterior\BookinteriorController@updateReject')->name('bookinterior.update.reject');
+    Route::get('bookinterior/{cancel}/cancel', 'Bookinterior\BookinteriorController@cancel')->name('bookinterior.cancel');
+    Route::put('bookinterior/{cancel}/cancel', 'Bookinterior\BookinteriorController@updateCancel')->name('bookinterior.update.cancel');
+
     //Activity Support API
     Route::get('api-support-monthlybyyear/{year}', 'Activity\ActivityController@supportMonthlybyyear')->name('api.support.monthlybyyear');
     Route::get('api-incident-bycategory-monthinyear/{year}/{month}', 'Activity\ActivityController@incidentBycategoryMonthinyear')->name('api.incident.bycategory.monthinyear');
