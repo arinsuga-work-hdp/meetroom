@@ -11,23 +11,8 @@
     </a>
 </li>
 
-<!-- <li class="nav-item">
-    <a class="nav-link" href="{{ route('support.close', ['support' => $viewModel->data->id]) }}">
-        <span style="font-weight: bold;">status = {{ $viewModel->data->activitystatus_id }}</span>
-    </a>
-</li> -->
-
-@if ($viewModel->data->orderstatus_id == 3)
-    <!-- button Reopen -->
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="{{ route('bookfounder.reopen', ['bookfounder' => $viewModel->data->id]) }}">
-            <span style="font-weight: bold;">Reopen</span>
-        </a>
-    </li> -->
-@endif
-
 @if ($viewModel->data->orderstatus_id == 1)
-<!-- button close -->
+<!-- button approve -->
 <li class="nav-item">
 
     <a  onclick="event.preventDefault();"
@@ -36,17 +21,23 @@
     ><span style="font-weight: bold;">Approve</span></a>
 
 </li>
-<!-- button pending -->
+<!-- button reject -->
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('bookfounder.reject', ['bookfounder' => $viewModel->data->id]) }}">
-        <span style="font-weight: bold;">Reject</span>
-    </a>
+
+    <a  onclick="event.preventDefault();"
+        data-toggle="modal" data-target="#modal-reject"
+        class="nav-link" href="#"
+    ><span style="font-weight: bold;">Reject</span></a>
+
 </li>
 <!-- button cancel -->
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('bookfounder.cancel', ['bookfounder' => $viewModel->data->id]) }}">
-        <span style="font-weight: bold;">Cancel</span>
-    </a>
+
+    <a  onclick="event.preventDefault();"
+        data-toggle="modal" data-target="#modal-cancel"
+        class="nav-link" href="#"
+    ><span style="font-weight: bold;">Cancel</span></a>
+
 </li>
 
 <!-- button edit -->
@@ -59,11 +50,6 @@
 
 <!-- button delete -->
 <li class="nav-item">
-
-    <!-- <a onclick="event.preventDefault(); document.getElementById('frmData').submit();"
-       class="nav-link" href="#">
-        <i class="fas fa-lg fa-trash"></i>
-    </a> -->
 
     <a  onclick="event.preventDefault();"
         data-toggle="modal" data-target="#modal-delete"
@@ -118,9 +104,27 @@
 
         } //end method
 
+        function rejectOrder() {
+
+            modalCloseResolution.click();
+            event.preventDefault();
+            document.getElementById('frmDataReject').submit();
+
+        } //end method
+
+        function cancelOrder() {
+
+            modalCloseResolution.click();
+            event.preventDefault();
+            document.getElementById('frmDataCancel').submit();
+
+        } //end method
+
     </script>
 
 @endsection
 
 @include('bo.bookfounder.modal-delete')    
-@include('bo.bookfounder.modal-approve')    
+@include('bo.bookfounder.modal-approve')
+@include('bo.bookfounder.modal-reject')
+@include('bo.bookfounder.modal-cancel')

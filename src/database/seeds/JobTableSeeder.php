@@ -12,6 +12,7 @@ class JobTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table("job")->delete();
         DB::table("job")->insert([ "id" => 1, "code" => "FOUND", "name" => "FOUNDER", "displayname" => "FOUNDER", "description" => "FOUNDER", "numsort" => 10, "status" => 1, ]); 
         DB::table("job")->insert([ "id" => 2, "code" => "KOM", "name" => "KOMISARIS", "displayname" => "KOMISARIS", "description" => "KOMISARIS", "numsort" => 20, "status" => 1, ]); 
         DB::table("job")->insert([ "id" => 3, "code" => "DIRUT", "name" => "DIREKTUR UTAMA", "displayname" => "DIREKTUR UTAMA", "description" => "DIREKTUR UTAMA", "numsort" => 30, "status" => 1, ]); 

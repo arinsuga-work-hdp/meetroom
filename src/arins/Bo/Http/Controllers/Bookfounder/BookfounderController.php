@@ -8,7 +8,7 @@ use Auth;
 
 use Arins\Http\Controllers\WebController;
 
-//use Arins\Bo\Http\Controllers\Bookfounder\UpdateStatus;
+use Arins\Bo\Http\Controllers\Bookroom\UpdateStatus;
 use Arins\Repositories\Orderstatus\OrderstatusRepositoryInterface;
 use Arins\Repositories\Room\RoomRepositoryInterface;
 use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;

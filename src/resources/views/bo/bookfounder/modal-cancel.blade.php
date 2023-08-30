@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-approve">
+<div class="modal fade" id="modal-cancel">
 <div class="modal-dialog">
     <div class="modal-content">
     <div class="modal-header">
@@ -9,7 +9,7 @@
     </div>
     <div class="modal-body">
         
-        <form role="form" id="frmDataApprove" method="POST" action="{{ route('bookfounder.update.approve', ['bookfounder' => $viewModel->data->id]) }}" enctype="multipart/form-data">
+        <form role="form" id="frmDataCancel" method="POST" action="{{ route('bookfounder.update.cancel', ['bookfounder' => $viewModel->data->id]) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -25,7 +25,7 @@
     </div>
     <div class="modal-footer justify-content-between">
         <button id="modalCloseResolution" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button onclick="approveOrder();" type="button" class="btn btn-primary">Approve Order</button>
+        <button onclick="cancelOrder();" type="button" class="btn btn-primary">Cancel Order</button>
     </div>
     </div>
     <!-- /.modal-content -->
