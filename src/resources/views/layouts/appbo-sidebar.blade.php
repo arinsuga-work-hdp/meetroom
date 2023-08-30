@@ -95,9 +95,9 @@
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{ route('bookbulat.index.today') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Bulat</p>
+            <p>R.Bulat</p>
           </a>
         </li>
       </ul>

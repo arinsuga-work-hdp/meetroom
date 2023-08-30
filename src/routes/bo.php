@@ -92,6 +92,21 @@ Route::group(['middleware'=>'lang'],function ()
     Route::get('bookinterior/{cancel}/cancel', 'Bookinterior\BookinteriorController@cancel')->name('bookinterior.cancel');
     Route::put('bookinterior/{cancel}/cancel', 'Bookinterior\BookinteriorController@updateCancel')->name('bookinterior.update.cancel');
 
+    //bookroom bulat
+    Route::resource('bookbulat', 'Bookbulat\BookbulatController');
+    Route::get('bookbulat-index-today', 'Bookbulat\BookbulatController@indexToday')->name('bookbulat.index.today');
+    Route::get('bookbulat-index-open', 'Bookbulat\BookbulatController@indexOpen')->name('bookbulat.index.open');
+    Route::get('bookbulat-index-custom', 'Bookbulat\BookbulatController@indexCustom')->name('bookbulat.index.custom');
+    Route::post('bookbulat-index-custom-post', 'Bookbulat\BookbulatController@indexCustomPost')->name('bookbulat.index.custom.post');
+
+    //bookroom status bulat
+    Route::get('bookbulat/{approve}/approve', 'Bookbulat\BookbulatController@approve')->name('bookbulat.approve');
+    Route::put('bookbulat/{approve}/approve', 'Bookbulat\BookbulatController@updateApprove')->name('bookbulat.update.approve');
+    Route::get('bookbulat/{reject}/reject', 'Bookbulat\BookbulatController@reject')->name('bookbulat.reject');
+    Route::put('bookbulat/{reject}/reject', 'Bookbulat\BookbulatController@updateReject')->name('bookbulat.update.reject');
+    Route::get('bookbulat/{cancel}/cancel', 'Bookbulat\BookbulatController@cancel')->name('bookbulat.cancel');
+    Route::put('bookbulat/{cancel}/cancel', 'Bookbulat\BookbulatController@updateCancel')->name('bookbulat.update.cancel');
+
     //Activity Support API
     Route::get('api-support-monthlybyyear/{year}', 'Activity\ActivityController@supportMonthlybyyear')->name('api.support.monthlybyyear');
     Route::get('api-incident-bycategory-monthinyear/{year}/{month}', 'Activity\ActivityController@incidentBycategoryMonthinyear')->name('api.incident.bycategory.monthinyear');
