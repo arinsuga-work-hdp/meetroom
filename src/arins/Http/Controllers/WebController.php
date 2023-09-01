@@ -32,7 +32,7 @@ class WebController extends Controller
     protected $redirectSuccessStore, $redirectSuccessUpdate, $redirectSuccessDestroy;
     protected $redirectFailStore, $redirectFailUpdate, $redirectFailDestroy;
     protected $aResponseData;
-    protected $data, $validator;
+    protected $data, $validator, $validationMessages;
     protected $controllerModes;
     protected $uploadDirectory;
 
@@ -51,6 +51,17 @@ class WebController extends Controller
         $this->appMode = config($this->appConfig . '.mode');
         $this->aResponseData = [];
         $this->dataModel = [];
+
+        /**
+         * Overrrideable property.
+         * 1. Set this properties to empty array in chiled class
+         *    if you want to use default validation message
+         * 2. Set this properties to any like examplein chiled class
+         *    if you want to customize validation message
+         */
+        $this->validationMessages = [
+            'required' => 'kolom :attribute wajib diisi.',
+        ];
     }
 
     //GET Request
@@ -103,17 +114,12 @@ class WebController extends Controller
         $imageTemp = $request->input('imageTemp'); //temporary file uploaded
         $data = $this->transformFieldCreate($data);
 
-        $tes = [
-            '$data' => $data,
-            '#request->input()' => $request->input()
-        ];
-
         //create temporary uploaded image
         $uploadTemp = Filex::uploadTemp($upload, $imageTemp);
         $request->session()->flash('imageTemp', $uploadTemp);
 
         //validate input value
-        $this->validator = Validator::make($data, $this->data->getValidateInput());
+        $this->validator = Validator::make($data, $this->data->getValidateInput(), $this->validationMessages);
         if ($this->validator->fails()) {
 
             //step 2: Kembali ke halaman input
@@ -194,7 +200,17 @@ class WebController extends Controller
         $request->session()->flash('imageTemp', $uploadTemp);
 
         //validate input value
-        $request->validate($this->data->getValidateInput());
+        //old code: $request->validate($this->data->getValidateInput());
+        $this->validator = Validator::make($data, $this->data->getValidateInput(), $this->validationMessages);
+        if ($this->validator->fails()) {
+
+            //step 2: Kembali ke halaman input
+            //return 1; //fail of validation
+            return redirect()->route($this->sViewName . '.edit', $id)
+            ->withErrors($this->validator)
+            ->withInput();
+
+        } //end if validator
 
         $data['updated_by'] = $user->id;
         $imageNew = Filex::uploadOrCopyAndRemove($imageOld, $uploadTemp, $this->uploadDirectory, $upload, 'public', false);

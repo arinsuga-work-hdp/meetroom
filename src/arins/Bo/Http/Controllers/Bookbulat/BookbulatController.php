@@ -166,11 +166,22 @@ class BookbulatController extends WebController
     }
 
     //Overrideable method
+    protected function validateCreate($request) {
+        $request->validate([
+            'name' => 'required'
+        ]);
+    }
+
+    //Overrideable method
     protected function transformFieldEdit($paDataField) {
         $dataField = $this->transformFieldCreate($paDataField);
 
         return $dataField;
     }
 
+    //Overrideable method
+    protected function validateEdit($request) {
+
+    }
 
 }

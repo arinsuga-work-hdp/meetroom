@@ -143,8 +143,6 @@ class ActivityController extends BoController
         //get input value by fillable fields
         $data = $request->only($this->data->getFillable()); //get field input
 
-        return dd($request->only($this->data->getFillable()));
-
         //validate input value (validate resolution)
         if ($activityStatusId == 2)
         {

@@ -34,10 +34,12 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
         ];
 
         $this->validateInput = [
-            //remarkfortes 'activitysubtype_id' => 'required',
-            //remarkfortes 'tasktype_id' => 'required',
-            // 'subject' => 'required',
-            // 'description' => 'required',
+            'name' => 'required',
+            'participants' => 'required',
+            'meetingdt' => 'required',
+            'startdt' => 'required',
+            'enddt' => 'required',
+            'subject' => 'required',
         ];
 
         $this->validateField = [

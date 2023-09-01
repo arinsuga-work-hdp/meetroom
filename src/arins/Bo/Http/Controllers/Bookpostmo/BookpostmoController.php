@@ -4,6 +4,7 @@ namespace Arins\Bo\Http\Controllers\Bookpostmo;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Request\ValidateBookRoom;
 use Auth;
 
 use Arins\Http\Controllers\WebController;
@@ -42,6 +43,16 @@ class BookpostmoController extends WebController
             'room' => $this->dataRoom->all(),
             'orderstatus' => $this->dataOrderstatus->all()
         ];
+
+        /**
+         * overrided property.\
+         * Set this properties to empty array if you want to use default validation message
+         * Set this properties to any like example if you want to customize validation message
+         */
+        // $this->validationMessages = [
+        //     //Example:
+        //     // 'required' => 'kolom :attribute wajib diisi.',
+        // ];
 
     } //end construction
 
@@ -171,6 +182,5 @@ class BookpostmoController extends WebController
 
         return $dataField;
     }
-
 
 }
