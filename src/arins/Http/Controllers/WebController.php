@@ -61,6 +61,8 @@ class WebController extends Controller
          */
         $this->validationMessages = [
             'required' => 'kolom :attribute wajib diisi.',
+            'email' => 'format alamat email tidak sesuai (contoh: example@mail.com)',
+            'numeric' => 'kolom :attribute harus diisi dengan angka.',
         ];
     }
 

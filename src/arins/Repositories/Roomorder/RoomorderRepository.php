@@ -35,7 +35,8 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
 
         $this->validateInput = [
             'name' => 'required',
-            'participants' => 'required',
+            'email' => 'nullable|email:rfc,dns',
+            'participants' => 'required|numeric',
             'meetingdt' => 'required',
             'startdt' => 'required',
             'enddt' => 'required',

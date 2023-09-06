@@ -29,6 +29,8 @@ margin-left: auto; margin-right:auto;">
         <div class="form-group col-md-2 col-sm-12">
           <label>Participants</label>
           <input {{ $disabled }} type="text" id="participants" name="participants" class="form-control" value="{{ ( $errors->any() ? old('participants') : $viewModel->data->participants ) }}">
+        </div>
+        <div class="col-md-1- col-sm-12">
           <p class="text-red">{{ $errors->first('participants') }}</p>
         </div>
       </div>
