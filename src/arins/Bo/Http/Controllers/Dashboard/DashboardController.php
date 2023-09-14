@@ -7,26 +7,23 @@ use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
 
-use Arins\Repositories\Activitytype\ActivitytypeRepositoryInterface;
-use Arins\Repositories\Activity\ActivityRepositoryInterface;
-use Arins\Repositories\ActivityView\ActivityViewRepositoryInterface;
-use Arins\Repositories\ActivityViewjoin\ActivityViewjoinRepositoryInterface;
-use Arins\Repositories\UserabsensiView\UserabsensiViewRepositoryInterface;
+use Arins\Http\Controllers\WebController;
+use Arins\Repositories\Room\RoomRepositoryInterface;
+use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;
 
 use Arins\Facades\Response;
 use Arins\Facades\Filex;
 use Arins\Facades\Formater;
 use Arins\Facades\ConvertDate;
 
-class DashboardController extends Controller
+class DashboardController extends WebController
 {
 
     protected $sViewRoot;
-    protected $data, $dataView, $dataViewjoin;
-    protected $dataAbsensiView;
-    protected $dataActivitytype;
-    protected $dataModel;
+    protected $data;
     protected $validateFields;
+    protected $postmo_id, $founder_id, $interior_id, $rbulat_id;
+    protected $dataPostmo, $dataFounder, $dataInterior, $dataRbulat;
 
 
     /**
@@ -36,11 +33,7 @@ class DashboardController extends Controller
      * 
      * @return void
      */
-    public function __construct(ActivityRepositoryInterface $parData,
-                                ActivityViewRepositoryInterface $parDataView,
-                                ActivityViewjoinRepositoryInterface $parDataViewjoin,
-                                ActivitytypeRepositoryInterface $parActivitytype,
-                                UserabsensiViewRepositoryInterface $parDataAbsensiView)
+    public function __construct(RoomorderRepositoryInterface $parData)
     {
         $this->middleware('auth.admin');
         $this->middleware('is.admin');
@@ -48,18 +41,14 @@ class DashboardController extends Controller
         $psViewRoot = 'bo.dashboard';
         $this->sViewRoot = $psViewRoot;
         $this->data = $parData;
-        $this->dataView = $parDataView;
-        $this->dataViewjoin = $parDataViewjoin;
-        $this->dataActivitytype = $parActivitytype;
-        $this->dataAbsensiView = $parDataAbsensiView;
-        $this->validateFields = [
-            //code array here...
-            'startdt' => 'required',
-            'enddt' => 'required',
-            'activitytype_id' => 'required',
-            'description' => 'required',
-        ];
+        $this->postmo_id = 1;
+        $this->founder_id = 2;
+        $this->interior_id = 3;
+        $this->rbulat_id = 4;
         
+        $this->dataModel = [
+        ];
+
     }
 
     /**
@@ -73,56 +62,23 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $this->viewModel = Response::viewModel();
+        $this->viewModel->data = null;
+        $this->dataPostmo = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->postmo_id);
+        $this->dataFounder = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->founder_id);
+        $this->dataInterior = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->interior_id);
+        $this->dataRbulat = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->rbulat_id);
 
-        $userId = Auth::user()->id;
-        $untilDate = Carbon::today();
-        $yearMonth = $untilDate->year. str_pad($untilDate->month, 2, '0', STR_PAD_LEFT);
+        $this->aResponseData = [
+            'viewModel' => $this->viewModel,
+            'dataPostmo' => $this->dataPostmo,
+            'dataFounder' => $this->dataFounder,
+            'dataInterior' => $this->dataInterior,
+            'dataRbulat' => $this->dataRbulat,
+        ];
+        $this->insertDataModelToResponseData();
 
-        $year = $untilDate->year;
-        $month = $untilDate->month;
-        $months = config('a1.date.iso.months');
-        $monthKeys = array_keys($months);
-        $monthText = $monthKeys[$month];
-        
-
-        $incident = $this->dataView->countOpenSupportIncidentByUserUntilDate($userId, $untilDate);
-        $request = $this->dataView->countOpenSupportRequestByUserUntilDate($userId, $untilDate);
-        $pending = $this->dataView->countSupportPendingByUserUntilDate($userId, $untilDate);
-        $mytask = $this->dataViewjoin->getSupportByUser($userId, 5);
-        $project = $this->dataViewjoin->getProjectByUser($userId, 5);
-        $absensiView = $this->dataAbsensiView->byUserIdYearMonth($userId, $yearMonth, 10);
-
-        $absensiTemp = array();
-        foreach ($absensiView as $index => $item) {
-            # code...
-            array_push($absensiTemp, [
-                'hari' => config('a1.date.isoindex.hari')[$item->tgl->dayOfWeek],
-                'tanggal' => \Arins\Facades\Formater::dateMonth($item->tgl),
-                'masuk' => $item->masuk,
-                'keluar' => $item->keluar,
-                'lama' => $item->work,
-                'lembur' => $item->overtime,
-                'catatan' => $item->leavetype,
-                'keterangan' => $item->remark,
-            ]);
-        } //end loop
-
-        $absensi = json_decode(json_encode($absensiTemp));
-
-        $viewModel = Response::viewModel([
-            'ticket' => [
-                            'incident' => $incident,
-                            'request' => $request,
-                            'pending' => $pending,
-                        ],
-            'mytask' => $mytask,
-            'project' => $project,
-            'absensi' => $absensi,
-        ]);
-
-        return view($this->sViewRoot.'.index',
-        ['viewModel' => $viewModel, 'year' => $year, 'month' => $month, 'monthText' => $monthText]);
+        return view($this->sViewRoot.'.index', $this->aResponseData);
     }
 
     protected function filters($request) {
