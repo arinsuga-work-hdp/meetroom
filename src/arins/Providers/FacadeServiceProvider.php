@@ -32,6 +32,11 @@ class FacadeServiceProvider extends ServiceProvider
         $this->app->singleton('filex', function ($app) {
             return new \Arins\Helpers\Filex\Filex();
         });
+
+        $this->app->singleton('timeline', function ($app) {
+            return new \Arins\Helpers\Timeline\Timeline();
+        });
+        
     }
 
     /**

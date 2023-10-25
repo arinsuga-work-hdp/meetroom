@@ -14,6 +14,7 @@ use Arins\Repositories\Room\RoomRepositoryInterface;
 use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;
 use Arins\Facades\Response;
 use Arins\Facades\ConvertDate;
+use Arins\Facades\Timeline;
 
 class BookfounderController extends WebController
 {
@@ -62,7 +63,19 @@ class BookfounderController extends WebController
         $this->viewModel->data = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->room_id);
 
         $this->aResponseData = ['viewModel' => $this->viewModel];
-        $this->insertDataModelToResponseData();
+
+        for ($i=0; $i < count($this->viewModel->data); $i++) { 
+            
+            $startdt = $this->viewModel->data[$i]['startdt'];
+            $enddt = $this->viewModel->data[$i]['enddt'];
+            $todayStartTime = Timeline::todayStartTime();
+            $progressStart = Timeline::progressStart($todayStartTime, $startdt);
+            $progressRun = Timeline::progressRun($startdt, $enddt);
+
+            $this->viewModel->data[$i]['progressStart'] = $progressStart;
+            $this->viewModel->data[$i]['progressRun'] = $progressRun;
+
+        } //end loop
 
         return view($this->sViewRoot.'.index-today', $this->aResponseData);
     }

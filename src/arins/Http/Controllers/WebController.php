@@ -56,7 +56,7 @@ class WebController extends Controller
          * Overrrideable property.
          * 1. Set this properties to empty array in chiled class
          *    if you want to use default validation message
-         * 2. Set this properties to any like examplein chiled class
+         * 2. Set this properties to any like example in child class
          *    if you want to customize validation message
          */
         $this->validationMessages = [

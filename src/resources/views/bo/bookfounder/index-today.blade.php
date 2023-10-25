@@ -68,7 +68,7 @@
 
 
         <div>
-            @include('bo.bookfounder.data-list-items')
+            @include('bo.bookfounder.index-today-items')
         </div>
 
 @endsection

@@ -68,7 +68,7 @@
 
 
         <div>
-            @include('bo.bookbulat.data-list-items')
+            @include('bo.bookbulat.index-today-items')
         </div>
 
 @endsection

@@ -68,7 +68,7 @@
 
 
         <div>
-            @include('bo.bookinterior.data-list-items')
+            @include('bo.bookinterior.index-today-items')
         </div>
 
 @endsection
