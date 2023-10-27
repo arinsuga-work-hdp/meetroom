@@ -75,6 +75,7 @@ return [
         'iso' => 'Y-m-d H:i:S',
 
         'time' => 'H:i:S',
+        'timeshort' => 'H:i',
         'timeampm' => 'G:i:S K',
 
         'date' => 'd/m/Y',

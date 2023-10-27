@@ -56,13 +56,13 @@ margin-left: auto; margin-right:auto;">
       </div>
 
       <div class="form-group">
-        <label>Start</label>
+        <label>Start (08:00 - 17:00)</label>
         <div class="row">
           @if ($fieldEnabled == true)
             <div class="input-group col-sm-12 col-md-6">
               <input type="text" class="form-control date" name="startdt" id="startdt"/>
               <div class="input-group-append">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                <div class="input-group-text"><i class="fa fa-clock"></i></div>
               </div>
             </div>
           @else
@@ -76,13 +76,13 @@ margin-left: auto; margin-right:auto;">
       </div> <!-- end form-group -->
 
       <div class="form-group">
-        <label>End</label>
+        <label>End (08:00 - 17:00)</label>
         <div class="row">
           @if ($fieldEnabled == true)
             <div class="input-group col-sm-12 col-md-6">
               <input type="text" class="form-control date" name="enddt" id="enddt"/>
               <div class="input-group-append">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                <div class="input-group-text"><i class="fa fa-clock"></i></div>
               </div>
             </div>
           @else

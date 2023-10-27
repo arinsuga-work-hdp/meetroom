@@ -8,22 +8,26 @@
 
     /** meetingdt tidak diformat lagi ke format iso
      *  karena output sudah otomatis format iso
-     *  YYYY-MM-DD HH:mm:ss
+     *  YYYY-MM-DD
      */
     flatpickr('#meetingdt', {
-        enableTime: true,
-        dateFormat: "{{ config('a1.datejs.datetime') }}",
+        enableTime: false,
+        dateFormat: "{{ config('a1.datejs.date') }}",
         defaultDate: new Date("{{ $viewModel->data->meetingdt }}")
     });
 
     /** startdt tidak diformat lagi ke format iso
      *  karena output sudah otomatis format iso
-     *  YYYY-MM-DD HH:mm:ss
+     *  HH:mm
      */
     flatpickr('#startdt', {
         enableTime: true,
-        dateFormat: "{{ config('a1.datejs.datetime') }}",
-        defaultDate: new Date("{{ $viewModel->data->startdt }}")
+        noCalendar: true,
+        dateFormat: "{{ config('a1.datejs.timeshort') }}",
+        defaultHour: 8,
+        minTime: '08:00',
+        maxTime: '17:00',
+        time_24hr: true
     });
 
     /** enddt tidak diformat lagi ke format iso
@@ -32,8 +36,12 @@
      */
     flatpickr('#enddt', {
         enableTime: true,
-        dateFormat: "{{ config('a1.datejs.datetime') }}",
-        defaultDate: new Date("{{ $viewModel->data->enddt }}")
+        noCalendar: true,
+        dateFormat: "{{ config('a1.datejs.timeshort') }}",
+        defaultHour: 8,
+        minTime: '08:00',
+        maxTime: '17:00',
+        time_24hr: true
     });
 
 // window.jsPDF = window.jspdf.jsPDF;

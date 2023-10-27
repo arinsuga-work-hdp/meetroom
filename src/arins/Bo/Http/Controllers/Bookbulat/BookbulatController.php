@@ -153,16 +153,25 @@ class BookbulatController extends WebController
 
         $dataField['room_id'] = $this->room_id;
 
-        if (isset($paDataField['meetingdt'])) {
-            $dataField['meetingdt'] = ConvertDate::strDatetimeToDate($paDataField['meetingdt']);
-        }
-
         if (isset($paDataField['startdt'])) {
-            $dataField['startdt'] = ConvertDate::strDatetimeToDate($paDataField['startdt']);
+
+            $startdt = $dataField['meetingdt'].' '.$dataField['startdt'].':00'; 
+            $dataField['startdt'] = ConvertDate::strDatetimeToDate($startdt);
+
         }
 
         if (isset($paDataField['enddt'])) {
-            $dataField['enddt'] = ConvertDate::strDatetimeToDate($paDataField['enddt']);
+
+            $enddt = $dataField['meetingdt'].' '.$dataField['enddt'].':00'; 
+            $dataField['enddt'] = ConvertDate::strDatetimeToDate($enddt);
+    
+        }
+
+        if (isset($paDataField['meetingdt'])) {
+
+            $meetingdt = $dataField['meetingdt'].' 00:00:00'; 
+            $dataField['meetingdt'] = ConvertDate::strDatetimeToDate($meetingdt);
+
         }
 
         if (isset($paDataField['snack'])) {
