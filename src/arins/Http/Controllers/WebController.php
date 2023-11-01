@@ -178,6 +178,7 @@ class WebController extends Controller
             'dataModel' => $this->dataModel
         ];
         $this->insertDataModelToResponseData();
+        $this->viewModel->data = $this->transformFieldEdit($this->viewModel->data);
 
         return view($this->sViewRoot.'.edit', $this->aResponseData);
     }
@@ -195,7 +196,7 @@ class WebController extends Controller
         $upload = $request->file('upload'); //upload file (image/document) ==> if included
         $imageTemp = $request->input('imageTemp'); //temporary file uploaded
         $toggleRemoveImage = $request->input('toggleRemoveImage');
-        $data = $this->transformFieldEdit($data);
+        $data = $this->transformFieldUpdate($data);
 
         //create temporary uploaded image
         $uploadTemp = Filex::uploadTemp($upload, $imageTemp);
@@ -315,4 +316,12 @@ class WebController extends Controller
         return $dataField;
     }
 
+    //Overrideable method
+    protected function transformFieldUpdate($paDataField) {
+        $dataField = $paDataField;
+
+        return $dataField;
+    }
+
+        
 }

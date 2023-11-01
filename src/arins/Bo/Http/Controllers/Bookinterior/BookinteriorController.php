@@ -189,6 +189,14 @@ class BookinteriorController extends WebController
 
     //Overrideable method
     protected function transformFieldEdit($paDataField) {
+
+        $dataField = $paDataField;
+
+        return $dataField;
+    }
+
+    //Overrideable method
+    protected function transformFieldUpdate($paDataField) {
         $dataField = $this->transformFieldCreate($paDataField);
 
         return $dataField;

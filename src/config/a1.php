@@ -114,6 +114,7 @@ return [
         'iso' => 'YYYY-MM-DD HH:mm:ss',
 
         'time' => 'HH:mm:ss',
+        'timeshort' => 'HH:mm:',
         'timeampm' => 'hh:mm:ss A',
 
         'date' => 'DD/MM/YYYY',

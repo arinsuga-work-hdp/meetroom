@@ -16,6 +16,7 @@ use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;
 use Arins\Facades\Response;
 use Arins\Facades\ConvertDate;
 use Arins\Facades\Timeline;
+use Arins\Facades\Formater;
 
 class BookpostmoController extends WebController
 {
@@ -79,7 +80,7 @@ class BookpostmoController extends WebController
             
             $startdt = $this->viewModel->data[$i]['startdt'];
             $enddt = $this->viewModel->data[$i]['enddt'];
-            $todayStartTime = Timeline::todayStartTime();
+            $todayStartTime = Timeline::todayStartTime($startdt);
             $progressStart = Timeline::progressStart($todayStartTime, $startdt);
             $progressRun = Timeline::progressRun($startdt, $enddt);
 
@@ -203,6 +204,15 @@ class BookpostmoController extends WebController
 
     //Overrideable method
     protected function transformFieldEdit($paDataField) {
+
+        $dataField = $paDataField;
+
+        return $dataField;
+    }
+
+    //Overrideable method
+    protected function transformFieldUpdate($paDataField) {
+
         $dataField = $this->transformFieldCreate($paDataField);
 
         return $dataField;

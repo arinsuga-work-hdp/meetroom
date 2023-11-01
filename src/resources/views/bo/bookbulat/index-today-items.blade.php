@@ -50,7 +50,7 @@
     <tbody>
 
         @foreach ($viewModel->data as $key => $item)
-            <tr onclick="window.location.assign('{{ route('bookpostmo.show', ['bookpostmo' => $item->id]) }}');">
+            <tr onclick="window.location.assign('{{ route('bookbulat.show', ['bookbulat' => $item->id]) }}');">
                 <td>{{ $key+1 }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->subject }}</td>

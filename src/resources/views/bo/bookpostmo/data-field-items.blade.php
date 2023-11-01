@@ -60,7 +60,7 @@ margin-left: auto; margin-right:auto;">
         <div class="row">
           @if ($fieldEnabled == true)
             <div class="input-group col-sm-12 col-md-6">
-              <input type="text" class="form-control date" name="startdt" id="startdt"/>
+              <input type="text" class="form-control date" name="startdt" id="startdt" value="{{ ( $errors->any() ? old('startdt') : Arins\Facades\Formater::timeshort($viewModel->data->startdt) ) }}"/>
               <div class="input-group-append">
                 <div class="input-group-text"><i class="fa fa-clock"></i></div>
               </div>
@@ -80,7 +80,7 @@ margin-left: auto; margin-right:auto;">
         <div class="row">
           @if ($fieldEnabled == true)
             <div class="input-group col-sm-12 col-md-6">
-              <input type="text" class="form-control date" name="enddt" id="enddt"/>
+              <input type="text" class="form-control date" name="enddt" id="enddt" value="{{ ( $errors->any() ? old('enddt') : Arins\Facades\Formater::timeshort($viewModel->data->enddt) ) }}"/>
               <div class="input-group-append">
                 <div class="input-group-text"><i class="fa fa-clock"></i></div>
               </div>

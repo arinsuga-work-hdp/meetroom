@@ -25,14 +25,21 @@ class Timeline implements TimelineInterface
     {
     }
 
-    public function todayStartTime()
+    public function todayStartTime($start = null)
     {
         //'datetime' => 'DD/MM/YYYY HH:mm:ss',
 
         $result = null;
-        $dd = now()->format('d');
-        $mm = now()->format('m');
-        $yyyy = now()->format('Y');
+        $startTime = null;
+        if (isset($start)) {
+            $startTime = $start;
+        } else {
+            $startTime = now();
+        }
+
+        $dd = $startTime->format('d');
+        $mm = $startTime->format('m');
+        $yyyy = $startTime->format('Y');
         $datetimeString = $dd.'/'.$mm.'/'.$yyyy.' 08:00:00';
         $datetime = ConvertDate::strDatetimeToDate($datetimeString);
 

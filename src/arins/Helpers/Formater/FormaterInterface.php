@@ -11,10 +11,11 @@ interface FormaterInterface
 
     /**
      * ======================================================
-     * 00. Time Standard 2 Methods
+     * 00. Time Standard 3 Methods
      * ====================================================== */
     public function time($data, $js=false);
     public function timeampm($data, $js=false);
+    public function timeshort($data, $js=false);
 
     /**
      * ======================================================

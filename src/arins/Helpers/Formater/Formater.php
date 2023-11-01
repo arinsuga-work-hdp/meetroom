@@ -48,7 +48,7 @@ class Formater implements FormaterInterface
 
     /**
      * ======================================================
-     * 00. Time Standard 2 Methods
+     * 00. Time Standard 3 Methods
      * ====================================================== */
     public function time($data, $js=false)
     {
@@ -75,6 +75,23 @@ class Formater implements FormaterInterface
                 return $data->isoFormat(config('a1.datejs.timeampm'));
             } else {
                 return $data->isoFormat(config('a1.date.timeampm'));
+            }
+
+        }
+        else
+        {
+            return '';
+        }
+    }
+
+    public function timeshort($data, $js=false)
+    {
+        if ( ($data != null) && ($data != ''))
+        {
+            if ($js){
+                return $data->isoFormat(config('a1.datejs.timeshort'));
+            } else {
+                return $data->isoFormat(config('a1.date.timeshort'));
             }
 
         }
