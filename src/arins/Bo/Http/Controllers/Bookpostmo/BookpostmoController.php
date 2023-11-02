@@ -189,12 +189,11 @@ class BookpostmoController extends WebController
 
         }
 
+        $dataField['snack'] = 0;
         if (isset($paDataField['snack'])) {
 
             if (strtolower($paDataField['snack']) == 'on' ) {
                 $dataField['snack'] = 1;
-            } else {
-                $dataField['snack'] = 0;
             } //end if
 
         } //end if
