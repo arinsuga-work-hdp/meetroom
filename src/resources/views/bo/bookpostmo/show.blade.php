@@ -27,21 +27,6 @@
 @endif
 
 @if ($viewModel->data->orderstatus_id == 1)
-<!-- button close -->
-<li class="nav-item">
-
-    <a  onclick="event.preventDefault();"
-        data-toggle="modal" data-target="#modal-approve"
-        class="nav-link" href="#"
-    ><span style="font-weight: bold;">Approve</span></a>
-
-</li>
-<!-- button pending -->
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('bookpostmo.reject', ['bookpostmo' => $viewModel->data->id]) }}">
-        <span style="font-weight: bold;">Reject</span>
-    </a>
-</li>
 <!-- button cancel -->
 <li class="nav-item">
     <a class="nav-link" href="{{ route('bookpostmo.cancel', ['bookpostmo' => $viewModel->data->id]) }}">

@@ -51,6 +51,7 @@ Route::group(['middleware'=>'lang'],function ()
     Route::resource('bookpostmo', 'Bookpostmo\BookpostmoController');
     Route::get('bookpostmo-index-today', 'Bookpostmo\BookpostmoController@indexToday')->name('bookpostmo.index.today');
     Route::get('bookpostmo-index-open', 'Bookpostmo\BookpostmoController@indexOpen')->name('bookpostmo.index.open');
+    Route::get('bookpostmo-index-cancel', 'Bookpostmo\BookpostmoController@indexCancel')->name('bookpostmo.index.cancel');
     Route::get('bookpostmo-index-custom', 'Bookpostmo\BookpostmoController@indexCustom')->name('bookpostmo.index.custom');
     Route::post('bookpostmo-index-custom-post', 'Bookpostmo\BookpostmoController@indexCustomPost')->name('bookpostmo.index.custom.post');
 
@@ -66,6 +67,7 @@ Route::group(['middleware'=>'lang'],function ()
     Route::resource('bookfounder', 'Bookfounder\BookfounderController');
     Route::get('bookfounder-index-today', 'Bookfounder\BookfounderController@indexToday')->name('bookfounder.index.today');
     Route::get('bookfounder-index-open', 'Bookfounder\BookfounderController@indexOpen')->name('bookfounder.index.open');
+    Route::get('bookfounder-index-cancel', 'Bookfounder\BookfounderController@indexCancel')->name('bookfounder.index.cancel');
     Route::get('bookfounder-index-custom', 'Bookfounder\BookfounderController@indexCustom')->name('bookfounder.index.custom');
     Route::post('bookfounder-index-custom-post', 'Bookfounder\BookfounderController@indexCustomPost')->name('bookfounder.index.custom.post');
 
@@ -81,6 +83,7 @@ Route::group(['middleware'=>'lang'],function ()
     Route::resource('bookinterior', 'Bookinterior\BookinteriorController');
     Route::get('bookinterior-index-today', 'Bookinterior\BookinteriorController@indexToday')->name('bookinterior.index.today');
     Route::get('bookinterior-index-open', 'Bookinterior\BookinteriorController@indexOpen')->name('bookinterior.index.open');
+    Route::get('bookinterior-index-cancel', 'Bookinterior\BookinteriorController@indexCancel')->name('bookinterior.index.cancel');
     Route::get('bookinterior-index-custom', 'Bookinterior\BookinteriorController@indexCustom')->name('bookinterior.index.custom');
     Route::post('bookinterior-index-custom-post', 'Bookinterior\BookinteriorController@indexCustomPost')->name('bookinterior.index.custom.post');
 
@@ -96,6 +99,7 @@ Route::group(['middleware'=>'lang'],function ()
     Route::resource('bookbulat', 'Bookbulat\BookbulatController');
     Route::get('bookbulat-index-today', 'Bookbulat\BookbulatController@indexToday')->name('bookbulat.index.today');
     Route::get('bookbulat-index-open', 'Bookbulat\BookbulatController@indexOpen')->name('bookbulat.index.open');
+    Route::get('bookbulat-index-cancel', 'Bookbulat\BookbulatController@indexCancel')->name('bookbulat.index.cancel');
     Route::get('bookbulat-index-custom', 'Bookbulat\BookbulatController@indexCustom')->name('bookbulat.index.custom');
     Route::post('bookbulat-index-custom-post', 'Bookbulat\BookbulatController@indexCustomPost')->name('bookbulat.index.custom.post');
 

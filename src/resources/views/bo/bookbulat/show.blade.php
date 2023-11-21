@@ -12,24 +12,6 @@
 </li>
 
 @if ($viewModel->data->orderstatus_id == 1)
-<!-- button approve -->
-<li class="nav-item">
-
-    <a  onclick="event.preventDefault();"
-        data-toggle="modal" data-target="#modal-approve"
-        class="nav-link" href="#"
-    ><span style="font-weight: bold;">Approve</span></a>
-
-</li>
-<!-- button reject -->
-<li class="nav-item">
-
-    <a  onclick="event.preventDefault();"
-        data-toggle="modal" data-target="#modal-reject"
-        class="nav-link" href="#"
-    ><span style="font-weight: bold;">Reject</span></a>
-
-</li>
 <!-- button cancel -->
 <li class="nav-item">
 

@@ -45,8 +45,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('bookpostmo.index.open') }}" style="font-weight: bold;">
-                        Open
+                    <a class="nav-link" href="{{ route('bookpostmo.index.cancel') }}" style="font-weight: bold;">
+                        Cancel
                     </a>
                 </li>
 
