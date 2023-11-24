@@ -82,6 +82,24 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
         }
     }
 
+    public function byRoomStatusCancelOrderByIdAndStartdtDesc($id, $take=null)
+    {
+        if ($take == null) {
+
+            return $this->model::where('room_id', $id)
+            ->where('orderstatus_id', 4)
+            ->orderBy('startdt', 'desc')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        } else {
+            return $this->model::where('room_id', $id)
+            ->where('orderstatus_id', 4)
+            ->take($take)
+            ->get();
+        }
+    }
+
     public function byRoomTodayOrderByIdAndStartdtDesc($id, $take=null)
     {
         if ($take == null) {

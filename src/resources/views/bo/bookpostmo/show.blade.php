@@ -27,11 +27,25 @@
 @endif
 
 @if ($viewModel->data->orderstatus_id == 1)
+
+<!-- button close -->
+<!-- <li class="nav-item">
+
+    <a  onclick="event.preventDefault();"
+        data-toggle="modal" data-target="#modal-approve"
+        class="nav-link" href="#"
+    ><span style="font-weight: bold;">Approve</span></a>
+
+</li> -->
+
 <!-- button cancel -->
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('bookpostmo.cancel', ['bookpostmo' => $viewModel->data->id]) }}">
-        <span style="font-weight: bold;">Cancel</span>
-    </a>
+
+    <a  onclick="event.preventDefault();"
+        data-toggle="modal" data-target="#modal-cancel"
+        class="nav-link" href="#"
+    ><span style="font-weight: bold;">Cancel</span></a>
+
 </li>
 
 <!-- button edit -->
@@ -86,6 +100,7 @@
         
         var modalClose = $("#modalClose");
         var modalCloseResolution = $("#modalCloseResolution");
+        var modalCloseCancelation = $("#modalCloseCancelation");
 
         function deleteOrder() {
 
@@ -103,9 +118,21 @@
 
         } //end method
 
+        function cancelOrder() {
+
+            modalCloseResolution.click();
+            event.preventDefault();
+            document.getElementById('frmDataCancel').submit();
+
+        } //end method
+
     </script>
 
 @endsection
 
-@include('bo.bookpostmo.modal-delete')    
-@include('bo.bookpostmo.modal-approve')    
+
+@php($baseRoute='bookpostmo')
+@include('bo.bookroom.modal-approve')    
+@include('bo.bookroom.modal-cancel')    
+@include('bo.bookroom.modal-delete')    
+

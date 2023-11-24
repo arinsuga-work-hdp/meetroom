@@ -12,6 +12,17 @@
 </li>
 
 @if ($viewModel->data->orderstatus_id == 1)
+
+<!-- button close -->
+<!-- <li class="nav-item">
+
+    <a  onclick="event.preventDefault();"
+        data-toggle="modal" data-target="#modal-approve"
+        class="nav-link" href="#"
+    ><span style="font-weight: bold;">Approve</span></a>
+
+</li> -->
+
 <!-- button cancel -->
 <li class="nav-item">
 
@@ -106,7 +117,7 @@
 
 @endsection
 
-@include('bo.bookfounder.modal-delete')    
-@include('bo.bookfounder.modal-approve')
-@include('bo.bookfounder.modal-reject')
-@include('bo.bookfounder.modal-cancel')
+@php($baseRoute='bookfounder')
+@include('bo.bookroom.modal-approve')    
+@include('bo.bookroom.modal-cancel')    
+@include('bo.bookroom.modal-delete')    

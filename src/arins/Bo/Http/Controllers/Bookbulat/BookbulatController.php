@@ -92,6 +92,17 @@ class BookbulatController extends WebController
     }
 
     /** get */
+    public function indexCancel()
+    {
+        $this->viewModel = Response::viewModel();
+        $this->viewModel->data = $this->data->byRoomStatusCancelOrderByIdAndStartdtDesc($this->room_id);
+        $this->aResponseData = ['viewModel' => $this->viewModel];
+
+
+        return view($this->sViewRoot.'.index-cancel', $this->aResponseData);
+    }
+
+    /** get */
     public function indexCustom()
     {
         $this->viewModel = Response::viewModel();

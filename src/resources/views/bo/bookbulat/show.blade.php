@@ -106,7 +106,9 @@
 
 @endsection
 
-@include('bo.bookbulat.modal-delete')    
-@include('bo.bookbulat.modal-approve')
-@include('bo.bookbulat.modal-reject')
-@include('bo.bookbulat.modal-cancel')
+@php($baseRoute='bookbulat')
+@include('bo.bookroom.modal-approve')    
+@include('bo.bookroom.modal-cancel')    
+@include('bo.bookroom.modal-delete')    
+
+

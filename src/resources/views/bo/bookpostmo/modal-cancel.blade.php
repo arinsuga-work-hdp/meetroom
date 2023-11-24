@@ -9,7 +9,7 @@
     </div>
     <div class="modal-body">
         
-        <form role="form" id="frmDataCancel" method="POST" action="{{ route('bookinterior.update.cancel', ['bookinterior' => $viewModel->data->id]) }}" enctype="multipart/form-data">
+        <form role="form" id="frmDataCancel" method="POST" action="{{ route('bookpostmo.update.cancel', ['bookpostmo' => $viewModel->data->id]) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -19,14 +19,13 @@
                 <textarea id="resolution" name="resolution" class="form-control" rows="3" placeholder="">{{ ( $errors->any() ? old('resolution') : $viewModel->data->resolution ) }}</textarea>
                 <p class="text-red">{{ $errors->first('resolution') }}</p>
             </div> -->
-
             <p>Proses Cancel Order?</p>
 
         </form>
 
     </div>
     <div class="modal-footer justify-content-between">
-        <button id="modalCloseResolution" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button id="modalCloseCancelation" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button onclick="cancelOrder();" type="button" class="btn btn-primary">Cancel Order</button>
     </div>
     </div>
