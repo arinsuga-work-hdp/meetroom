@@ -160,4 +160,47 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
         return $result;
     }
 
+    function existRoomStartEnd($id, $meetingdt, $startdt, $enddt)
+    {
+        $result = -1;
+
+        if ( isset($id) && isset($meetingdt) && isset($startdt) && isset($enddt) ) {
+
+            $result = 0;
+            $orderstatus_id	= 1; //1 = Open
+
+            //id
+            $data1 = $this->model::where('room_id', $id);
+            $data2 = $this->model::where('room_id', $id);
+
+            //orederstatus_id
+            $data1 = $data1->where('orderstatus_id', $orderstatus_id);
+            $data2 = $data2->where('orderstatus_id', $orderstatus_id);
+
+            //meeting date
+            $data1 = $data1->where('meetingdt', '=', $meetingdt);
+            $data2 = $data2->where('meetingdt', '=', $meetingdt);
+            //startdt
+            $data1 = $data1->where('startdt', '<=', $startdt);
+            $data1 = $data1->where('enddt', '>', $startdt);
+            // $data1 = $data1->where('enddt', '>=', $startdt);
+            //enddt
+            $data2 = $data2->where('startdt', '<=', $enddt);
+            $data2 = $data2->where('enddt', '>=', $enddt);
+
+            $data1 = $data1->get();
+            $data2 = $data2->get();
+            $result = count($data1);
+            if ($result <= 0) {
+                
+                $result = count($data2);
+    
+            } //end if
+    
+
+        } //end if      
+
+        return $result;
+    }
+
 }

@@ -12,4 +12,5 @@ interface RoomorderRepositoryInterface extends BaseRepositoryInterface
     function byRoomStatusCancelOrderByIdAndStartdtDesc($id, $take=null);
     function byRoomTodayOrderByIdAndStartdtDesc($id, $take=null);
     function byRoomCustom($id, $filter, $take=null);
+    function existRoomStartEnd($id, $meetingdt, $startdt, $enddt);
 }

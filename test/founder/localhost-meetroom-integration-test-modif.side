@@ -2,10 +2,10 @@
   "id": "42296c06-139e-4e75-8d3e-f7ee6b009cf8",
   "version": "2.0",
   "name": "meetroom-test",
-  "url": "http://localhost/bookpostmo-index-today",
+  "url": "http://localhost/postmo-index-today",
   "tests": [{
     "id": "c4a69793-5808-4397-98dc-f234f1c9a658",
-    "name": "postmo.normal.budi",
+    "name": "step1-founder.normal.budi",
     "commands": [{
       "id": "afc5f8e5-4c23-44e1-9f75-af909b7a819a",
       "comment": "",
@@ -57,7 +57,7 @@
         ["xpath=//form[@id='frmData']/div/div/div/div/input", "xpath:idRelative"],
         ["xpath=//div/input", "xpath:position"]
       ],
-      "value": "founder- budi"
+      "value": "founder - budi"
     }, {
       "id": "f6919d39-6674-4e8c-ae9e-d2747d15004e",
       "comment": "",
@@ -180,7 +180,7 @@
         ["xpath=//form[@id='frmData']/div/div/div/div[5]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[5]/div/div/input", "xpath:position"]
       ],
-      "value": "24/11/2023"
+      "value": "05/12/2023"
     }, {
       "id": "cb47a562-0c68-4759-bca8-1203e7d62ade",
       "comment": "",
@@ -194,6 +194,13 @@
         ["xpath=//form[@id='frmData']/div/div/div/div[6]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[6]/div/div/input", "xpath:position"]
       ],
+      "value": ""
+    }, {
+      "id": "04ed34d6-a2cd-4d6f-8b9b-143e4a19f19f",
+      "comment": "",
+      "command": "type",
+      "target": "css=.open .flatpickr-hour",
+      "targets": [],
       "value": ""
     }, {
       "id": "1ad7c306-3d2f-4d53-bae2-386dd76336a2",
@@ -244,6 +251,13 @@
         ["xpath=//div[7]/div/div/input", "xpath:position"]
       ],
       "value": "10:00"
+    }, {
+      "id": "cafbf216-850c-4fa6-b742-cb75542890b5",
+      "comment": "",
+      "command": "type",
+      "target": "css=.open .flatpickr-minute",
+      "targets": [],
+      "value": "00"
     }, {
       "id": "2d2ea7dd-02f3-4978-992d-613e7f85499a",
       "comment": "",
@@ -339,7 +353,7 @@
     }]
   }, {
     "id": "6991db39-a50b-4d76-a724-5ea180b55e5f",
-    "name": "postmo.normal.iwan",
+    "name": "step2-founder.normal.iwan",
     "commands": [{
       "id": "a38debfc-e2de-49c3-99a8-6a30992a18a6",
       "comment": "",
@@ -514,7 +528,7 @@
         ["xpath=//form[@id='frmData']/div/div/div/div[5]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[5]/div/div/input", "xpath:position"]
       ],
-      "value": "24/11/2023"
+      "value": "05/12/2023"
     }, {
       "id": "a9c15626-ef91-4c88-98b4-a2be41383922",
       "comment": "",
@@ -558,7 +572,7 @@
       "id": "37f00ec1-ac9c-43a1-9444-be2233090b84",
       "comment": "",
       "command": "type",
-      "target": "css=.flatpickr-calendar:nth-child(10) .flatpickr-minute",
+      "target": "css=.open .flatpickr-minute",
       "targets": [
         ["css=.flatpickr-calendar:nth-child(10) .flatpickr-minute", "css:finder"],
         ["xpath=(//input[@type='number'])[5]", "xpath:attributes"],
@@ -608,7 +622,7 @@
       "id": "28c38cb6-7c35-471f-88e8-7e833d0ba3f5",
       "comment": "",
       "command": "type",
-      "target": "css=.flatpickr-calendar:nth-child(10) .flatpickr-minute",
+      "target": "css=.open .flatpickr-minute",
       "targets": [
         ["css=.flatpickr-calendar:nth-child(10) .flatpickr-minute", "css:finder"],
         ["xpath=(//input[@type='number'])[5]", "xpath:attributes"],
@@ -716,24 +730,24 @@
       "value": ""
     }]
   }, {
-    "id": "aa6c77b1-5f43-4b03-900a-d58f211f7601",
-    "name": "postmo.validate.mandatory",
+    "id": "e03390f3-9784-40f6-9050-dd02ca9d5089",
+    "name": "step3-founder.validasi_jam_terpakai.david",
     "commands": [{
-      "id": "4465ea1b-1334-42ca-86c4-fe2962f825a5",
+      "id": "36e0506e-b697-465c-8d45-9d34ac64f8d4",
       "comment": "",
       "command": "open",
       "target": "http://localhost/meetroom/bookfounder-index-today",
       "targets": [],
       "value": ""
     }, {
-      "id": "93a2bff7-9408-4d57-9612-1face31a018a",
+      "id": "d0e774d7-7996-433c-aee0-115ae3a3b63d",
       "comment": "",
       "command": "setWindowSize",
       "target": "1382x738",
       "targets": [],
       "value": ""
     }, {
-      "id": "4fe9095c-c8f4-4862-8f34-14d775fed789",
+      "id": "d640c799-f93d-44d8-a028-26b25e308c8d",
       "comment": "",
       "command": "click",
       "target": "css=.fa-plus",
@@ -743,45 +757,7 @@
       ],
       "value": ""
     }, {
-      "id": "bfcecdf7-b9f4-4fb0-9534-628f669b897b",
-      "comment": "",
-      "command": "click",
-      "target": "css=.fa-save",
-      "targets": [
-        ["css=.fa-save", "css:finder"],
-        ["xpath=//li[2]/a/i", "xpath:position"]
-      ],
-      "value": ""
-    }]
-  }, {
-    "id": "57a5f579-9279-4f49-a618-a330555bdfd7",
-    "name": "postmo.validate.emailformat.rini",
-    "commands": [{
-      "id": "0c4b5b65-342f-47ca-ad1d-8e3697bab636",
-      "comment": "",
-      "command": "open",
-      "target": "http://localhost/meetroom/bookfounder-index-today",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "338a95dc-ef2a-4413-8b63-d0ecb61cc4ec",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1382x738",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "79a47f3b-b25e-4faa-b85e-5549938e8a03",
-      "comment": "",
-      "command": "click",
-      "target": "css=.fa-plus",
-      "targets": [
-        ["css=.fa-plus", "css:finder"],
-        ["xpath=//ul[3]/li/a/i", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "e42a0b45-5f98-4e96-afe3-36ead11d0c6e",
+      "id": "21b41893-c11b-46f8-9e6a-e8e173132fe1",
       "comment": "",
       "command": "click",
       "target": "id=name",
@@ -795,7 +771,7 @@
       ],
       "value": ""
     }, {
-      "id": "eb5748e9-d6fd-4fd0-84a0-cc16bb6ea4f3",
+      "id": "bd77361a-c797-403f-9079-fc714965c98d",
       "comment": "",
       "command": "type",
       "target": "id=name",
@@ -807,9 +783,9 @@
         ["xpath=//form[@id='frmData']/div/div/div/div/input", "xpath:idRelative"],
         ["xpath=//div/input", "xpath:position"]
       ],
-      "value": "founder - rini"
+      "value": "founder - david"
     }, {
-      "id": "ccec60dd-3a90-4286-956c-1e9728bb6927",
+      "id": "f279a634-a0bc-449c-a1e2-a2d99457928b",
       "comment": "",
       "command": "click",
       "target": "id=phone_ext",
@@ -823,7 +799,7 @@
       ],
       "value": ""
     }, {
-      "id": "8bf4a40c-acb7-411a-8514-e205084b6b82",
+      "id": "f7fe21d4-bf6a-4619-a3a0-2e94b14b9908",
       "comment": "",
       "command": "type",
       "target": "id=phone_ext",
@@ -837,7 +813,7 @@
       ],
       "value": "777"
     }, {
-      "id": "f79298ca-83db-416b-ae0e-4b3404cbf96e",
+      "id": "5d6bc53a-e16d-43f3-8e01-f4d70eba465c",
       "comment": "",
       "command": "click",
       "target": "id=email",
@@ -851,7 +827,7 @@
       ],
       "value": ""
     }, {
-      "id": "55540814-7ad0-4fbf-b1e7-03ec2a922f7a",
+      "id": "e8edd08c-06df-4570-a8fc-a4362529a766",
       "comment": "",
       "command": "type",
       "target": "id=email",
@@ -863,9 +839,9 @@
         ["xpath=//form[@id='frmData']/div/div/div/div[3]/input", "xpath:idRelative"],
         ["xpath=//div[3]/input", "xpath:position"]
       ],
-      "value": "rini"
+      "value": "david@gmail.com"
     }, {
-      "id": "58dc4535-e09f-4803-b381-8c0eb8cfc034",
+      "id": "b6a3154a-6128-4ade-b2fe-ad2afed7b7fe",
       "comment": "",
       "command": "click",
       "target": "id=participants",
@@ -879,7 +855,7 @@
       ],
       "value": ""
     }, {
-      "id": "1176197d-5f24-4a05-b08d-7832a316421a",
+      "id": "c1e94068-b465-433a-8ed1-7d24aff7ee3e",
       "comment": "",
       "command": "type",
       "target": "id=participants",
@@ -893,7 +869,7 @@
       ],
       "value": "7"
     }, {
-      "id": "b5ee26ca-3c48-4ec9-9f72-25eb451c5e3e",
+      "id": "15a688f0-a61e-49af-9843-9ba3249975b2",
       "comment": "",
       "command": "click",
       "target": "id=meetingdt",
@@ -907,7 +883,7 @@
       ],
       "value": ""
     }, {
-      "id": "acd6b5be-856e-4413-a5ac-5c0b40489b86",
+      "id": "321579ca-2606-4d68-a364-163e423ecd9f",
       "comment": "",
       "command": "click",
       "target": "css=.today",
@@ -918,7 +894,7 @@
       ],
       "value": ""
     }, {
-      "id": "5a960125-9ada-4b28-a07d-705dc1738110",
+      "id": "9e1d876b-18ad-4375-b9ff-ba0b3125dc87",
       "comment": "",
       "command": "type",
       "target": "id=meetingdt",
@@ -930,9 +906,9 @@
         ["xpath=//form[@id='frmData']/div/div/div/div[5]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[5]/div/div/input", "xpath:position"]
       ],
-      "value": "24/11/2023"
+      "value": "05/12/2023"
     }, {
-      "id": "eaf4befb-dca2-420a-97d6-d1368f875f20",
+      "id": "71347624-9c74-41ec-a9d0-502644b999e1",
       "comment": "",
       "command": "click",
       "target": "id=startdt",
@@ -946,7 +922,7 @@
       ],
       "value": ""
     }, {
-      "id": "27298b13-28a0-42a8-81aa-5f702ebe1aae",
+      "id": "05faefc0-b1fc-4da4-8799-082c94d9d427",
       "comment": "",
       "command": "type",
       "target": "css=.open .flatpickr-hour",
@@ -955,9 +931,9 @@
         ["xpath=(//input[@type='number'])[4]", "xpath:attributes"],
         ["xpath=//div[4]/div/div/input", "xpath:position"]
       ],
-      "value": "14"
+      "value": "11"
     }, {
-      "id": "dbb125d7-d755-4fbd-8463-6cfb89a39dc8",
+      "id": "77edce64-ebb6-4b2d-9da6-15e990a99bc0",
       "comment": "",
       "command": "type",
       "target": "id=startdt",
@@ -969,12 +945,12 @@
         ["xpath=//form[@id='frmData']/div/div/div/div[6]/div/div/input", "xpath:idRelative"],
         ["xpath=//div[6]/div/div/input", "xpath:position"]
       ],
-      "value": "14:00"
+      "value": "11:00"
     }, {
-      "id": "2e117761-0a03-43fe-826c-84a8f65bcd06",
+      "id": "05771dee-ac49-4475-9b51-da49a382d0b8",
       "comment": "",
       "command": "type",
-      "target": "css=.flatpickr-calendar:nth-child(10) .flatpickr-minute",
+      "target": "css=.open .flatpickr-minute",
       "targets": [
         ["css=.flatpickr-calendar:nth-child(10) .flatpickr-minute", "css:finder"],
         ["xpath=(//input[@type='number'])[5]", "xpath:attributes"],
@@ -982,7 +958,7 @@
       ],
       "value": "00"
     }, {
-      "id": "749b0fc1-9bb3-43eb-a3fa-f123f3095408",
+      "id": "412ec970-57d6-4f94-807b-90641ed30e4f",
       "comment": "",
       "command": "click",
       "target": "id=enddt",
@@ -996,7 +972,7 @@
       ],
       "value": ""
     }, {
-      "id": "04f804a3-2c0e-410c-98a2-6dc1f27754ab",
+      "id": "0a879f33-878a-4b43-8918-a8c03cff424d",
       "comment": "",
       "command": "type",
       "target": "css=.open .flatpickr-hour",
@@ -1007,7 +983,7 @@
       ],
       "value": "15"
     }, {
-      "id": "e5ae2cc1-a5bd-4c68-9805-bdfc0a7f12ca",
+      "id": "e98a1b6c-47ac-4d54-a641-03f7518d2c24",
       "comment": "",
       "command": "type",
       "target": "id=enddt",
@@ -1021,18 +997,18 @@
       ],
       "value": "15:00"
     }, {
-      "id": "a6f7f192-0cc6-4cd9-8cc1-bd0626aa5c8f",
+      "id": "ce348add-a351-41e5-ae95-58a244518aae",
       "comment": "",
       "command": "type",
-      "target": "css=.flatpickr-calendar:nth-child(10) .flatpickr-minute",
+      "target": "css=.open .flatpickr-minute",
       "targets": [
         ["css=.flatpickr-calendar:nth-child(10) .flatpickr-minute", "css:finder"],
         ["xpath=(//input[@type='number'])[5]", "xpath:attributes"],
         ["xpath=//div[4]/div/div[2]/input", "xpath:position"]
       ],
-      "value": "00"
+      "value": "20"
     }, {
-      "id": "9abbcb0c-ed66-4538-a1dc-0fd66e11f7b1",
+      "id": "166850cb-0155-4787-b83e-560d6b634d07",
       "comment": "",
       "command": "click",
       "target": "id=subject",
@@ -1046,7 +1022,7 @@
       ],
       "value": ""
     }, {
-      "id": "14a42389-4b41-4ae3-acf4-a8786561b0f3",
+      "id": "2504fb56-1dcd-4ba5-a56d-70108e55a6cd",
       "comment": "",
       "command": "type",
       "target": "id=subject",
@@ -1058,16 +1034,16 @@
         ["xpath=//form[@id='frmData']/div/div/div/div[8]/input", "xpath:idRelative"],
         ["xpath=//div[8]/input", "xpath:position"]
       ],
-      "value": "postmo - meeting internal interior"
+      "value": "founder - meeting internal interior"
     }, {
-      "id": "136b8d7f-32a5-4ee3-bfa6-518df9a50bec",
+      "id": "286e0f26-9bb2-4ed0-ad33-1e1ad332227b",
       "comment": "",
       "command": "click",
       "target": "id=snack",
       "targets": [],
       "value": "on"
     }, {
-      "id": "ebc8b825-c35c-43b2-b36e-ad62bfff8fc3",
+      "id": "e140ad78-42df-42a6-812c-ffc2f5c597d2",
       "comment": "",
       "command": "click",
       "target": "id=description",
@@ -1081,7 +1057,7 @@
       ],
       "value": ""
     }, {
-      "id": "b0f648f7-fe5b-40d6-8f87-8ee7b4fcf6f3",
+      "id": "e52098c2-fcc9-46b8-b598-b28f74971168",
       "comment": "",
       "command": "type",
       "target": "id=description",
@@ -1095,7 +1071,7 @@
       ],
       "value": "founder - meeting internal interior: perencanaan"
     }, {
-      "id": "df7ae9ee-c4d0-426e-8e3e-2005d6726145",
+      "id": "340a9d3f-1b8c-46d6-a57c-d4addd23abe2",
       "comment": "",
       "command": "click",
       "target": "css=.fa-save",
@@ -1105,15 +1081,509 @@
       ],
       "value": ""
     }, {
-      "id": "b1d36b25-d347-4a1a-8088-3448636f998c",
+      "id": "20cb0a51-afee-40d7-b441-ca9a54741357",
       "comment": "",
       "command": "verifyText",
-      "target": "css=.form-group:nth-child(3) > .text-red",
+      "target": "css=.alert-danger h5",
       "targets": [],
-      "value": "format alamat email tidak sesuai (contoh: example@mail.com)"
+      "value": " Alert!"
+    }, {
+      "id": "80a34eca-5c06-4af1-b3eb-46d35d360fbb",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.alert-danger p",
+      "targets": [],
+      "value": "Ruang meeting sudah di booking..."
+    }]
+  }, {
+    "id": "631bb602-85c1-4eeb-b946-b8676e3bdbf4",
+    "name": "step4-founder.normal.Doni",
+    "commands": [{
+      "id": "4a13541e-0ae6-45e3-b0f9-9039fb81a297",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/meetroom/bookfounder-index-today",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "568b71a6-f329-4f9f-a1ac-94b6543c04ed",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x738",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "84f17a2c-966e-4cc9-bb03-d7a9a89f468e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//ul[3]/li/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33f2eea0-d2d5-49dd-91c5-ea3b6101a939",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7070ac46-7493-41fe-b46b-799074208736",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "founder - doni"
+    }, {
+      "id": "b846f8bc-2bfd-4023-9767-762c65e42ff2",
+      "comment": "",
+      "command": "click",
+      "target": "id=phone_ext",
+      "targets": [
+        ["id=phone_ext", "id"],
+        ["name=phone_ext", "name"],
+        ["css=#phone_ext", "css:finder"],
+        ["xpath=//input[@id='phone_ext']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7882ed6-c791-4cf5-9c10-27421edd24dd",
+      "comment": "",
+      "command": "type",
+      "target": "id=phone_ext",
+      "targets": [
+        ["id=phone_ext", "id"],
+        ["name=phone_ext", "name"],
+        ["css=#phone_ext", "css:finder"],
+        ["xpath=//input[@id='phone_ext']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "777"
+    }, {
+      "id": "d5e53fe2-cc40-49b6-869b-7c7563b8c8cf",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2709bf7-9adb-4b78-9f92-e3f10c9f186d",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "doni@gmail.com"
+    }, {
+      "id": "b3061833-0f0a-4fa8-8769-080f52511d4e",
+      "comment": "",
+      "command": "click",
+      "target": "id=participants",
+      "targets": [
+        ["id=participants", "id"],
+        ["name=participants", "name"],
+        ["css=#participants", "css:finder"],
+        ["xpath=//input[@id='participants']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e320c8c1-d9aa-4e2d-949a-064726f2bb5c",
+      "comment": "",
+      "command": "type",
+      "target": "id=participants",
+      "targets": [
+        ["id=participants", "id"],
+        ["name=participants", "name"],
+        ["css=#participants", "css:finder"],
+        ["xpath=//input[@id='participants']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "7"
+    }, {
+      "id": "7444d3a3-efea-430e-9b09-49c3e5143940",
+      "comment": "",
+      "command": "click",
+      "target": "id=meetingdt",
+      "targets": [
+        ["id=meetingdt", "id"],
+        ["name=meetingdt", "name"],
+        ["css=#meetingdt", "css:finder"],
+        ["xpath=//input[@id='meetingdt']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[5]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "56b1332c-bce3-402c-8fd8-00a19a444c9b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.today",
+      "targets": [
+        ["css=.today", "css:finder"],
+        ["xpath=//span[11]", "xpath:position"],
+        ["xpath=//span[contains(.,'8')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "097c195a-2bd2-4820-9163-8ffa70805438",
+      "comment": "",
+      "command": "type",
+      "target": "id=meetingdt",
+      "targets": [
+        ["id=meetingdt", "id"],
+        ["name=meetingdt", "name"],
+        ["css=#meetingdt", "css:finder"],
+        ["xpath=//input[@id='meetingdt']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[5]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div/input", "xpath:position"]
+      ],
+      "value": "05/12/2023"
+    }, {
+      "id": "41cf3358-2ff1-4ebc-b332-eaca01d2e771",
+      "comment": "",
+      "command": "click",
+      "target": "id=startdt",
+      "targets": [
+        ["id=startdt", "id"],
+        ["name=startdt", "name"],
+        ["css=#startdt", "css:finder"],
+        ["xpath=//input[@id='startdt']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[6]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "264b72b6-7e68-4da8-b6bd-5d56463164c5",
+      "comment": "",
+      "command": "type",
+      "target": "css=.open .flatpickr-hour",
+      "targets": [
+        ["css=.open .flatpickr-hour", "css:finder"],
+        ["xpath=(//input[@type='number'])[4]", "xpath:attributes"],
+        ["xpath=//div[4]/div/div/input", "xpath:position"]
+      ],
+      "value": "14"
+    }, {
+      "id": "1097c31d-3079-42d3-a5aa-9778d3bc919e",
+      "comment": "",
+      "command": "type",
+      "target": "id=startdt",
+      "targets": [
+        ["id=startdt", "id"],
+        ["name=startdt", "name"],
+        ["css=#startdt", "css:finder"],
+        ["xpath=//input[@id='startdt']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[6]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/input", "xpath:position"]
+      ],
+      "value": "14:00"
+    }, {
+      "id": "65ef770b-7329-4e80-b36e-60409252bab3",
+      "comment": "",
+      "command": "type",
+      "target": "css=.open .flatpickr-minute",
+      "targets": [
+        ["css=.flatpickr-calendar:nth-child(10) .flatpickr-minute", "css:finder"],
+        ["xpath=(//input[@type='number'])[5]", "xpath:attributes"],
+        ["xpath=//div[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "00"
+    }, {
+      "id": "798933eb-d8f7-416a-9cb1-deca9203d7b0",
+      "comment": "",
+      "command": "click",
+      "target": "id=enddt",
+      "targets": [
+        ["id=enddt", "id"],
+        ["name=enddt", "name"],
+        ["css=#enddt", "css:finder"],
+        ["xpath=//input[@id='enddt']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[7]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a94a82de-c60c-4587-b14e-f9bc9bedf921",
+      "comment": "",
+      "command": "type",
+      "target": "css=.open .flatpickr-hour",
+      "targets": [
+        ["css=.open .flatpickr-hour", "css:finder"],
+        ["xpath=(//input[@type='number'])[4]", "xpath:attributes"],
+        ["xpath=//div[4]/div/div/input", "xpath:position"]
+      ],
+      "value": "16"
+    }, {
+      "id": "bb921222-1fc1-4b61-aa2b-b10623ea444a",
+      "comment": "",
+      "command": "type",
+      "target": "id=enddt",
+      "targets": [
+        ["id=enddt", "id"],
+        ["name=enddt", "name"],
+        ["css=#enddt", "css:finder"],
+        ["xpath=//input[@id='enddt']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[7]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[7]/div/div/input", "xpath:position"]
+      ],
+      "value": "16:00"
+    }, {
+      "id": "616a95cb-94f4-4dcb-bad2-a3c05b414d18",
+      "comment": "",
+      "command": "type",
+      "target": "css=.open .flatpickr-minute",
+      "targets": [
+        ["css=.flatpickr-calendar:nth-child(10) .flatpickr-minute", "css:finder"],
+        ["xpath=(//input[@type='number'])[5]", "xpath:attributes"],
+        ["xpath=//div[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "00"
+    }, {
+      "id": "dfcb6200-6c5e-42fd-83eb-07de7c6587fd",
+      "comment": "",
+      "command": "click",
+      "target": "id=subject",
+      "targets": [
+        ["id=subject", "id"],
+        ["name=subject", "name"],
+        ["css=#subject", "css:finder"],
+        ["xpath=//input[@id='subject']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8184f9a1-8638-49a3-a803-6a454032dfb1",
+      "comment": "",
+      "command": "type",
+      "target": "id=subject",
+      "targets": [
+        ["id=subject", "id"],
+        ["name=subject", "name"],
+        ["css=#subject", "css:finder"],
+        ["xpath=//input[@id='subject']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "founder - meeting internal interior"
+    }, {
+      "id": "3646e90c-6947-4c94-b41d-faf9fa2d4840",
+      "comment": "",
+      "command": "click",
+      "target": "id=snack",
+      "targets": [],
+      "value": "on"
+    }, {
+      "id": "c72a4419-03fb-4d28-9f06-dfe813d4b401",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[10]/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b06c0df-1588-4f3b-94c7-14ff8df9c7d4",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[10]/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "founder - meeting internal interior: perencanaan"
+    }, {
+      "id": "ffffbed5-5d6a-4368-94e6-db1bdc37175b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-save",
+      "targets": [
+        ["css=.fa-save", "css:finder"],
+        ["xpath=//li[2]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "16597922-26df-4677-863c-17177e586270",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Today",
+      "targets": [
+        ["linkText=Today", "linkText"],
+        ["css=.container-fluid .nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Today')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, 'https://meetroom.hd-desk.com/bookpostmo-index-today')])[2]", "xpath:href"],
+        ["xpath=//section/div/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Today')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2e0b7eb-e24d-4e7e-8446-a2021a64eb82",
+      "comment": "",
+      "command": "click",
+      "target": "css=td:nth-child(3)",
+      "targets": [
+        ["css=td:nth-child(3)", "css:finder"],
+        ["xpath=//table[@id='filter']/tbody/tr/td[3]", "xpath:idRelative"],
+        ["xpath=//td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'postmo - meeting internal arsitek')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f81af44d-90e5-4a0c-bdd3-a9221746a4ab",
+    "name": "step5-founder.update_validasi_jam_terpakai.Doni",
+    "commands": [{
+      "id": "91ffc674-a6cf-44b8-af33-b0e938d1eb87",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/meetroom/bookfounder-index-today",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "175e1d4c-2352-49ac-a600-0d1356101c87",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x738",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b68e452-9223-43b1-ae43-1ac550fe1e31",
+      "comment": "",
+      "command": "click",
+      "target": "css=.table tbody tr:nth-child(1)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "89a2c262-f5b9-46f2-9269-9e88e261fe2a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-edit",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//ul[3]/li/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aafa31fa-3102-497c-987a-5345df56e530",
+      "comment": "",
+      "command": "click",
+      "target": "id=startdt",
+      "targets": [
+        ["id=startdt", "id"],
+        ["name=startdt", "name"],
+        ["css=#startdt", "css:finder"],
+        ["xpath=//input[@id='startdt']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[6]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0bc7ec55-2e0c-484c-999c-9bf482652055",
+      "comment": "",
+      "command": "type",
+      "target": "css=.open .flatpickr-hour",
+      "targets": [
+        ["css=.open .flatpickr-hour", "css:finder"],
+        ["xpath=(//input[@type='number'])[4]", "xpath:attributes"],
+        ["xpath=//div[4]/div/div/input", "xpath:position"]
+      ],
+      "value": "11"
+    }, {
+      "id": "2dd36ef3-4177-4bb2-9fc7-821e7ae985a6",
+      "comment": "",
+      "command": "type",
+      "target": "id=startdt",
+      "targets": [
+        ["id=startdt", "id"],
+        ["name=startdt", "name"],
+        ["css=#startdt", "css:finder"],
+        ["xpath=//input[@id='startdt']", "xpath:attributes"],
+        ["xpath=//form[@id='frmData']/div/div/div/div[6]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/input", "xpath:position"]
+      ],
+      "value": "11:00"
+    }, {
+      "id": "8a0294e1-f094-4ea2-a1f4-65c63c327602",
+      "comment": "",
+      "command": "type",
+      "target": "css=.open .flatpickr-minute",
+      "targets": [
+        ["css=.flatpickr-calendar:nth-child(10) .flatpickr-minute", "css:finder"],
+        ["xpath=(//input[@type='number'])[5]", "xpath:attributes"],
+        ["xpath=//div[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "00"
+    }, {
+      "id": "dffec9b6-1d60-4f4f-840d-42a5136ddb71",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-save",
+      "targets": [
+        ["css=.fa-save", "css:finder"],
+        ["xpath=//li[2]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "780beb90-50be-4755-a37d-7c1648bc1683",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.alert-danger h5",
+      "targets": [],
+      "value": " Alert!"
+    }, {
+      "id": "4ec2de63-aa95-428c-b596-78c44ddf9e50",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.alert-danger p",
+      "targets": [],
+      "value": "Ruang meeting sudah di booking..."
     }]
   }],
   "suites": [],
-  "urls": ["https://meetroom.hd-desk.com/bookpostmo-index-today", "http://localhost/bookpostmo-index-today"],
+  "urls": ["https://meetroom.hd-desk.com/bookpostmo-index-today", "http://localhost/bookpostmo-index-today", "http://localhost/founder-index-today", "http://localhost/postmo-index-today"],
   "plugins": []
 }

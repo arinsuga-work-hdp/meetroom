@@ -121,8 +121,8 @@ class WebController extends Controller
         $request->session()->flash('imageTemp', $uploadTemp);
 
         //validate input value
-        $this->validator = Validator::make($data, $this->data->getValidateInput(), $this->validationMessages);
-        if ($this->validator->fails()) {
+        $valid = $this->validateStore($data, $this->data->getValidateInput(), $this->validationMessages);
+        if (!$valid) {
 
             //step 2: Kembali ke halaman input
             //return 1; //fail of validation
@@ -203,9 +203,9 @@ class WebController extends Controller
         $request->session()->flash('imageTemp', $uploadTemp);
 
         //validate input value
-        //old code: $request->validate($this->data->getValidateInput());
-        $this->validator = Validator::make($data, $this->data->getValidateInput(), $this->validationMessages);
-        if ($this->validator->fails()) {
+        //validate input value
+        $valid = $this->validateUpdate($data, $this->data->getValidateInput(), $this->validationMessages);
+        if (!$valid) {
 
             //step 2: Kembali ke halaman input
             //return 1; //fail of validation
@@ -321,6 +321,33 @@ class WebController extends Controller
         $dataField = $paDataField;
 
         return $dataField;
+    }
+
+    //Overrideable method
+    protected function validateStore($data, $validateInput, $validationMessages) {
+        $result = true;
+
+        //Custom overrride code here...
+
+        return $result;
+    }
+
+    //Overrideable method
+    protected function validateUpdate($data, $validateInput, $validationMessages) {
+        $result = true;
+
+        //Custom overrride code here...
+
+        return $result;
+    }
+
+    //Overrideable method
+    protected function validateDestroy($paDataField) {
+        $result = true;
+
+        //Custom overrride code here...
+
+        return $result;
     }
 
         
