@@ -5,7 +5,7 @@
   "url": "http://localhost/postmo-index-today",
   "tests": [{
     "id": "c4a69793-5808-4397-98dc-f234f1c9a658",
-    "name": "step1-bulat.normal.budi",
+    "name": "step4-bulat1.normal.budi",
     "commands": [{
       "id": "afc5f8e5-4c23-44e1-9f75-af909b7a819a",
       "comment": "",
@@ -353,7 +353,7 @@
     }]
   }, {
     "id": "6991db39-a50b-4d76-a724-5ea180b55e5f",
-    "name": "step2-bulat.normal.iwan",
+    "name": "step4-bulat2.normal.iwan",
     "commands": [{
       "id": "a38debfc-e2de-49c3-99a8-6a30992a18a6",
       "comment": "",
@@ -731,7 +731,7 @@
     }]
   }, {
     "id": "e03390f3-9784-40f6-9050-dd02ca9d5089",
-    "name": "step3-bulat.validasi_jam_terpakai.david",
+    "name": "step4-bulat3.validasi_jam_terpakai.david",
     "commands": [{
       "id": "36e0506e-b697-465c-8d45-9d34ac64f8d4",
       "comment": "",
@@ -1097,7 +1097,7 @@
     }]
   }, {
     "id": "631bb602-85c1-4eeb-b946-b8676e3bdbf4",
-    "name": "step4-bulat.normal.Doni",
+    "name": "step4-bulat4.normal.Doni",
     "commands": [{
       "id": "4a13541e-0ae6-45e3-b0f9-9039fb81a297",
       "comment": "",
@@ -1475,7 +1475,7 @@
     }]
   }, {
     "id": "f81af44d-90e5-4a0c-bdd3-a9221746a4ab",
-    "name": "step5-bulat.update_validasi_jam_terpakai.Doni",
+    "name": "step4-bulat5.update_validasi_jam_terpakai.Doni",
     "commands": [{
       "id": "91ffc674-a6cf-44b8-af33-b0e938d1eb87",
       "comment": "",
