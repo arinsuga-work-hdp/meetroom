@@ -10,6 +10,7 @@ use Auth;
 use Arins\Http\Controllers\WebController;
 
 use Arins\Bo\Http\Controllers\Bookroom\UpdateStatus;
+use Arins\Bo\Http\Controllers\Bookroom\ValidateOrder;
 use Arins\Repositories\Orderstatus\OrderstatusRepositoryInterface;
 use Arins\Repositories\Room\RoomRepositoryInterface;
 use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;
@@ -19,7 +20,7 @@ use Arins\Facades\Timeline;
 
 class BookfounderController extends WebController
 {
-    use UpdateStatus;
+    use UpdateStatus, ValidateOrder;
 
     protected $dataRoom;
     protected $room_id;
@@ -212,70 +213,6 @@ class BookfounderController extends WebController
         $dataField = $this->transformFieldCreate($paDataField);
 
         return $dataField;
-    }
-
-    //Overrideable method
-    protected function validateStore($data, $validateInput, $validationMessages) {
-        $result = true;
-
-        //Basic validation
-        $this->validator = Validator::make($data, $validateInput, $validationMessages);
-        if ($this->validator->fails()) {
-
-            $result = false;
-
-        } //end if validator
-
-        //Custom validation
-        $id = $this->room_id;
-        $meetingdt = $data['meetingdt'];
-        $startdt = $data['startdt'];
-        $enddt = $data['enddt'];
-        $validationData = $this->data->existRoomStartEnd($id, $meetingdt, $startdt, $enddt);
-        if ( ($validationData < 0) || ($validationData > 0) ) {
-
-            $result = false;
-            if ($validationData > 0) {
-
-                $this->validator->errors()->add('custom', 'Ruang meeting sudah di booking...');
-
-            } //end if
-
-        } //end if
-
-        return $result;
-    }
-
-    //Overrideable method
-    protected function validateUpdate($data, $validateInput, $validationMessages) {
-        $result = true;
-
-        //Basic validation
-        $this->validator = Validator::make($data, $validateInput, $validationMessages);
-        if ($this->validator->fails()) {
-
-            $result = false;
-
-        } //end if validator
-
-        //Custom validation
-        $id = $this->room_id;
-        $meetingdt = $data['meetingdt'];
-        $startdt = $data['startdt'];
-        $enddt = $data['enddt'];
-        $validationData = $this->data->existRoomStartEnd($id, $meetingdt, $startdt, $enddt);
-        if ( ($validationData < 0) || ($validationData > 0) ) {
-
-            $result = false;
-            if ($validationData > 0) {
-
-                $this->validator->errors()->add('custom', 'Ruang meeting sudah di booking...');
-
-            } //end if
-
-        } //end if
-
-        return $result;
     }
 
 }
