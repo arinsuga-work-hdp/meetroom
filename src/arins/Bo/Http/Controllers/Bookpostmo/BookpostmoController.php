@@ -4,7 +4,6 @@ namespace Arins\Bo\Http\Controllers\Bookpostmo;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Request\ValidateBookRoom;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 
@@ -12,17 +11,20 @@ use Arins\Http\Controllers\WebController;
 
 use Arins\Bo\Http\Controllers\Bookroom\UpdateStatus;
 use Arins\Bo\Http\Controllers\Bookroom\ValidateOrder;
+use Arins\Bo\Http\Controllers\Bookroom\TransformField;
+use Arins\Bo\Http\Controllers\Bookroom\FilterField;
+
 use Arins\Repositories\Orderstatus\OrderstatusRepositoryInterface;
 use Arins\Repositories\Room\RoomRepositoryInterface;
 use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;
+
 use Arins\Facades\Response;
-use Arins\Facades\ConvertDate;
 use Arins\Facades\Timeline;
-use Arins\Facades\Formater;
 
 class BookpostmoController extends WebController
 {
     use UpdateStatus, ValidateOrder;
+    use TransformField, FilterField;
 
     protected $dataRoom;
     protected $room_id;
@@ -156,78 +158,6 @@ class BookpostmoController extends WebController
         $this->insertDataModelToResponseData();
 
         return view($this->sViewRoot.'.index-custom', $this->aResponseData);
-    }
-
-    protected function filters($request) {
-
-        $data = [
-            'name' => $request->input('name'),
-            'meetingdt' => ConvertDate::strDatetimeToDate($request->input('meetingdt')),
-            'startdt' => ConvertDate::strDatetimeToDate($request->input('startdt')),
-            'enddt' => ConvertDate::strDatetimeToDate($request->input('enddt')),
-            'orderstatus_id' => $request->input('orderstatus_id'),
-            'subject' => $request->input('subject'),
-            'snack' => $request->input('snack'),
-        ];
-        // $filter = json_decode(json_encode($data));
-        $filter = $data;
-
-        return $filter;
-    }
-
-    //Overrided method
-    protected function transformFieldCreate($paDataField) {
-        $dataField = $paDataField;
-
-        $dataField['room_id'] = $this->room_id;
-
-        if (isset($paDataField['startdt'])) {
-
-            $startdt = $dataField['meetingdt'].' '.$dataField['startdt'].':00'; 
-            $dataField['startdt'] = ConvertDate::strDatetimeToDate($startdt);
-
-        }
-
-        if (isset($paDataField['enddt'])) {
-
-            $enddt = $dataField['meetingdt'].' '.$dataField['enddt'].':00'; 
-            $dataField['enddt'] = ConvertDate::strDatetimeToDate($enddt);
-    
-        }
-
-        if (isset($paDataField['meetingdt'])) {
-
-            $meetingdt = $dataField['meetingdt'].' 00:00:00'; 
-            $dataField['meetingdt'] = ConvertDate::strDatetimeToDate($meetingdt);
-
-        }
-
-        $dataField['snack'] = 0;
-        if (isset($paDataField['snack'])) {
-
-            if (strtolower($paDataField['snack']) == 'on' ) {
-                $dataField['snack'] = 1;
-            } //end if
-
-        } //end if
-
-        return $dataField;
-    }
-
-    //Overrideable method
-    protected function transformFieldEdit($paDataField) {
-
-        $dataField = $paDataField;
-
-        return $dataField;
-    }
-
-    //Overrideable method
-    protected function transformFieldUpdate($paDataField) {
-
-        $dataField = $this->transformFieldCreate($paDataField);
-
-        return $dataField;
     }
 
 }
