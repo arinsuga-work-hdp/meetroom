@@ -22,7 +22,7 @@ margin-left: auto; margin-right:auto;">
 
         <!-- Start Date -->
         <div class="form-group">
-            <label>Start/End Date:</label>
+            <label>Start/End Time:</label>
             <div class="row">
                 <div class="input-group col-sm-12 col-md-6">
                     <input type="text" class="form-control date" name="startdt" id="startdt"/>
