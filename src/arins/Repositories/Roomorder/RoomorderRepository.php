@@ -105,7 +105,8 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
         if ($take == null) {
 
             return $this->model::where('room_id', $id)
-            ->whereDate('created_at', Carbon::today())
+            ->where('orderstatus_id', 1)
+            ->whereDate('meetingdt', Carbon::today())
             ->orderBy('startdt', 'desc')
             ->orderBy('id', 'desc')
             ->get();
