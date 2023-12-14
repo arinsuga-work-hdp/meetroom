@@ -31,6 +31,13 @@
         </li>
 
         <li class="nav-item">
+          <a href="{{ route('bookfaried.index.today') }}" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Faried</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a href="{{ route('bookfounder.index.today') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Founder</p>

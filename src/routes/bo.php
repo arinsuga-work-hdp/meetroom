@@ -47,6 +47,22 @@ Route::group(['middleware'=>'lang'],function ()
     //activity
     Route::resource('activity', 'Activity\ActivityController');
 
+    //bookroom faried
+    Route::resource('bookfaried', 'Bookfaried\BookfariedController');
+    Route::get('bookfaried-index-today', 'Bookfaried\BookfariedController@indexToday')->name('bookfaried.index.today');
+    Route::get('bookfaried-index-open', 'Bookfaried\BookfariedController@indexOpen')->name('bookfaried.index.open');
+    Route::get('bookfaried-index-cancel', 'Bookfaried\BookfariedController@indexCancel')->name('bookfaried.index.cancel');
+    Route::get('bookfaried-index-custom', 'Bookfaried\BookfariedController@indexCustom')->name('bookfaried.index.custom');
+    Route::post('bookfaried-index-custom-post', 'Bookfaried\BookfariedController@indexCustomPost')->name('bookfaried.index.custom.post');
+
+    //bookroom status faried
+    Route::get('bookfaried/{approve}/approve', 'Bookfaried\BookfariedController@approve')->name('bookfaried.approve');
+    Route::put('bookfaried/{approve}/approve', 'Bookfaried\BookfariedController@updateApprove')->name('bookfaried.update.approve');
+    Route::get('bookfaried/{reject}/reject', 'Bookfaried\BookfariedController@reject')->name('bookfaried.reject');
+    Route::put('bookfaried/{reject}/reject', 'Bookfaried\BookfariedController@updateReject')->name('bookfaried.update.reject');
+    Route::get('bookfaried/{cancel}/cancel', 'Bookfaried\BookfariedController@cancel')->name('bookfaried.cancel');
+    Route::put('bookfaried/{cancel}/cancel', 'Bookfaried\BookfariedController@updateCancel')->name('bookfaried.update.cancel');
+
     //bookroom postmo
     Route::resource('bookpostmo', 'Bookpostmo\BookpostmoController');
     Route::get('bookpostmo-index-today', 'Bookpostmo\BookpostmoController@indexToday')->name('bookpostmo.index.today');
