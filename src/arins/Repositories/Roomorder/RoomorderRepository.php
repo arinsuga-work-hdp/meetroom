@@ -173,28 +173,40 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
             //id
             $data1 = $this->model::where('room_id', $id);
             $data2 = $this->model::where('room_id', $id);
+            $data3 = $this->model::where('room_id', $id);
 
             //orederstatus_id
             $data1 = $data1->where('orderstatus_id', $orderstatus_id);
             $data2 = $data2->where('orderstatus_id', $orderstatus_id);
+            $data3 = $data3->where('orderstatus_id', $orderstatus_id);
 
             //meeting date
             $data1 = $data1->where('meetingdt', '=', $meetingdt);
             $data2 = $data2->where('meetingdt', '=', $meetingdt);
+
             //startdt
             $data1 = $data1->where('startdt', '<=', $startdt);
             $data1 = $data1->where('enddt', '>', $startdt);
-            // $data1 = $data1->where('enddt', '>=', $startdt);
             //enddt
             $data2 = $data2->where('startdt', '<=', $enddt);
             $data2 = $data2->where('enddt', '>=', $enddt);
 
+            //startdt - enddt
+            $data3 = $data3->where('startdt', '>=', $startdt);
+            $data3 = $data3->where('enddt', '<=', $enddt);
+
             $data1 = $data1->get();
             $data2 = $data2->get();
+            $data3 = $data3->get();
             $result = count($data1);
             if ($result <= 0) {
                 
                 $result = count($data2);
+                if ($result <= 0) {
+
+                    $result = count($data3);
+
+                } //end if
     
             } //end if
     
