@@ -129,7 +129,12 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
 
         //name
         if (isset($filter['name'])) {
-            $result = $result->where('name', $filter['name']);
+            $result = $result->where('name', 'like', '%' . $filter['name'] . '%');
+        }
+
+        //subject
+        if (isset($filter['subject'])) {
+            $result = $result->where('subject', 'like', '%' . $filter['subject'] . '%');
         }
 
         //startdt - enddt

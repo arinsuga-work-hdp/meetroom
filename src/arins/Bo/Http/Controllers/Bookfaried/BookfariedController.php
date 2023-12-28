@@ -13,6 +13,7 @@ use Arins\Bo\Http\Controllers\Bookroom\UpdateStatus;
 use Arins\Bo\Http\Controllers\Bookroom\ValidateOrder;
 use Arins\Bo\Http\Controllers\Bookroom\TransformField;
 use Arins\Bo\Http\Controllers\Bookroom\FilterField;
+use Arins\Bo\Http\Controllers\Bookroom\ValidationMessage;
 
 use Arins\Repositories\Orderstatus\OrderstatusRepositoryInterface;
 use Arins\Repositories\Room\RoomRepositoryInterface;
@@ -25,6 +26,8 @@ class BookfariedController extends WebController
 {
     use UpdateStatus, ValidateOrder;
     use TransformField, FilterField;
+    //Add custom trait if you want to customize validation error message
+    use ValidationMessage;
 
     protected $dataRoom;
     protected $room_id;

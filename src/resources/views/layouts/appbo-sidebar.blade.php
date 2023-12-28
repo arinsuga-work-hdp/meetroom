@@ -17,7 +17,7 @@
       <a href="#" class="nav-link">
         <i class="nav-icon fas fa-tag"></i>
         <p>
-          Booking
+          Ruang Meeting
           <i class="fas fa-angle-left right"></i>
         </p>
       </a>

@@ -22,8 +22,8 @@ class DashboardController extends WebController
     protected $sViewRoot;
     protected $data;
     protected $validateFields;
-    protected $postmo_id, $founder_id, $interior_id, $rbulat_id;
-    protected $dataPostmo, $dataFounder, $dataInterior, $dataRbulat;
+    protected $postmo_id, $founder_id, $interior_id, $rbulat_id, $faried_id;
+    protected $dataPostmo, $dataFounder, $dataInterior, $dataRbulat, $dataFaried;
 
 
     /**
@@ -45,6 +45,7 @@ class DashboardController extends WebController
         $this->founder_id = 2;
         $this->interior_id = 3;
         $this->rbulat_id = 4;
+        $this->faried_id = 5;
         
         $this->dataModel = [
         ];
@@ -68,6 +69,8 @@ class DashboardController extends WebController
         $this->dataFounder = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->founder_id);
         $this->dataInterior = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->interior_id);
         $this->dataRbulat = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->rbulat_id);
+        $this->dataFaried = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->faried_id);
+        
 
         $this->aResponseData = [
             'viewModel' => $this->viewModel,
@@ -75,6 +78,7 @@ class DashboardController extends WebController
             'dataFounder' => $this->dataFounder,
             'dataInterior' => $this->dataInterior,
             'dataRbulat' => $this->dataRbulat,
+            'dataFaried' => $this->dataFaried,
         ];
         $this->insertDataModelToResponseData();
 

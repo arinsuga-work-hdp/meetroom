@@ -10,9 +10,10 @@ use Auth;
 use Arins\Http\Controllers\WebController;
 
 use Arins\Bo\Http\Controllers\Bookroom\UpdateStatus;
-use Arins\Bo\Http\Controllers\Bookroom\ValidateOrder;
 use Arins\Bo\Http\Controllers\Bookroom\TransformField;
 use Arins\Bo\Http\Controllers\Bookroom\FilterField;
+use Arins\Bo\Http\Controllers\Bookroom\ValidateOrder;
+use Arins\Bo\Http\Controllers\Bookroom\ValidationMessage;
 
 use Arins\Repositories\Orderstatus\OrderstatusRepositoryInterface;
 use Arins\Repositories\Room\RoomRepositoryInterface;
@@ -25,6 +26,8 @@ class BookpostmoController extends WebController
 {
     use UpdateStatus, ValidateOrder;
     use TransformField, FilterField;
+    //Add custom trait if you want to customize validation error message
+    use ValidationMessage;
 
     protected $dataRoom;
     protected $room_id;
@@ -49,16 +52,6 @@ class BookpostmoController extends WebController
             'room' => $this->dataRoom->all(),
             'orderstatus' => $this->dataOrderstatus->all()
         ];
-
-        /**
-         * overrided property.\
-         * Set this properties to empty array if you want to use default validation message
-         * Set this properties to any like example if you want to customize validation message
-         */
-        // $this->validationMessages = [
-        //     //Example:
-        //     // 'required' => 'kolom :attribute wajib diisi.',
-        // ];
 
     } //end construction
 

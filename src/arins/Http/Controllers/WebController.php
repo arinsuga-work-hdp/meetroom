@@ -64,6 +64,10 @@ class WebController extends Controller
             'email' => 'format alamat email tidak sesuai (contoh: example@mail.com)',
             'numeric' => 'kolom :attribute harus diisi dengan angka.',
         ];
+
+        //Custom additional validation properties
+        $this->customizeErrorMessage();
+        
     }
 
     //GET Request
@@ -348,6 +352,10 @@ class WebController extends Controller
         //Custom overrride code here...
 
         return $result;
+    }
+
+    protected function customizeErrorMessage() {
+        //Custom overrride code here...
     }
 
         
