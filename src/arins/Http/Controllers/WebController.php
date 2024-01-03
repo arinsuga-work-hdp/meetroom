@@ -295,6 +295,58 @@ class WebController extends Controller
         }
    }
 
+    //GET Request
+    public function indexCustom()
+    {
+        $this->viewModel = Response::viewModel();
+        $this->viewModel->data = json_decode(json_encode($this->data->getInputField()));
+        $this->viewModel->data->date = now();
+
+        $this->aResponseData = [
+            'viewModel' => $this->viewModel,
+            'new' => true,
+            'fieldEnabled' => true,
+            'customError' => null,
+        ];
+        $this->insertDataModelToResponseData();
+
+        return view($this->sViewRoot.'.index-custom', $this->aResponseData);
+    }
+
+    //POST Request
+    public function indexCustomPost(Request $request)
+    {
+
+        $data = $request->only($this->data->getFillable()); //get field input
+        $this->viewModel = Response::viewModel();
+        $customData = $this->data->getInputField();
+        $customData['datalist'] = null;
+        $this->viewModel->data = json_decode(json_encode($customData));
+
+        //custom validation
+        $customError = 'Tanggal meeting harus diisi jika jam mulai dan selesai diisi';
+        $validInput = $this->validateCustomView($data);
+
+        if ($validInput) {
+
+            $customError = null;
+            $data = $this->transformFieldCreate($data);
+            $filter = $this->filters($data);
+            $this->viewModel->data->datalist = $this->data->byRoomCustom($this->room_id, $filter);
+    
+        } //end if
+        
+        $this->aResponseData = [
+            'viewModel' => $this->viewModel,
+            'new' => true,
+            'fieldEnabled' => true,
+            'customError' => $customError,
+        ];
+        $this->insertDataModelToResponseData();
+
+        return view($this->sViewRoot.'.index-custom', $this->aResponseData);
+    }
+
     //Additional data ( Lookup data)
     protected function insertDataModelToResponseData() {
 
@@ -350,6 +402,13 @@ class WebController extends Controller
         $result = true;
 
         //Custom overrride code here...
+
+        return $result;
+    }
+
+    //Overrideable from WebController method
+    protected function validateCustomView($data) {
+        $result = true;
 
         return $result;
     }

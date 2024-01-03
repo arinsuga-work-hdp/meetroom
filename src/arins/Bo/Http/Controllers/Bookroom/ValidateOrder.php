@@ -73,5 +73,20 @@ trait ValidateOrder
         return $result;
     }
 
+    //Overrideable from WebController method
+    protected function validateCustomView($data) {
+        $result = true;
+
+        if ( ($data['meetingdt'] === null) &&
+            ( ($data['startdt'] !== null) || ($data['enddt'] !== null) ) ) {
+
+                $result = false;
+
+        } //end if
+
+
+        return $result;
+    }
+
 }
 

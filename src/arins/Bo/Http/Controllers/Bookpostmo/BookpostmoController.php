@@ -114,43 +114,47 @@ class BookpostmoController extends WebController
         return view($this->sViewRoot.'.index-cancel', $this->aResponseData);
     }
 
-    /** get */
-    public function indexCustom()
-    {
-        $this->viewModel = Response::viewModel();
-        $this->viewModel->data = json_decode(json_encode($this->data->getInputField()));
-        $this->viewModel->data->date = now();
+    //GET Request
+    // public function indexCustom()
+    // {
+    //     $this->viewModel = Response::viewModel();
+    //     $this->viewModel->data = json_decode(json_encode($this->data->getInputField()));
+    //     $this->viewModel->data->date = now();
 
-        $this->aResponseData = [
-            'viewModel' => $this->viewModel,
-            'new' => true,
-            'fieldEnabled' => true,
-        ];
-        $this->insertDataModelToResponseData();
+    //     $this->aResponseData = [
+    //         'viewModel' => $this->viewModel,
+    //         'new' => true,
+    //         'fieldEnabled' => true,
+    //     ];
+    //     $this->insertDataModelToResponseData();
 
-        return view($this->sViewRoot.'.index-custom', $this->aResponseData);
-    }
+    //     return view($this->sViewRoot.'.index-custom', $this->aResponseData);
+    // }
 
-    /** post */
-    public function indexCustomPost(Request $request)
-    {
+    //POST Request
+    // public function indexCustomPost(Request $request)
+    // {
 
-        $filter = $this->filters($request);
+    //     $data = $request->only($this->data->getFillable()); //get field input
 
-        $this->viewModel = Response::viewModel();
-        $data = $this->data->getInputField();
-        $data['datalist'] = null;
-        $this->viewModel->data = json_decode(json_encode($data));
-        $this->viewModel->data->datalist = $this->data->byRoomCustom($this->room_id, $filter);
+    //     //custom validation
+
+    //     $data = $this->transformFieldCreate($data);
+    //     $filter = $this->filters($data);
+    //     $this->viewModel = Response::viewModel();
+    //     $data = $this->data->getInputField();
+    //     $data['datalist'] = null;
+    //     $this->viewModel->data = json_decode(json_encode($data));
+    //     $this->viewModel->data->datalist = $this->data->byRoomCustom($this->room_id, $filter);
         
-        $this->aResponseData = [
-            'viewModel' => $this->viewModel,
-            'new' => true,
-            'fieldEnabled' => true,
-        ];
-        $this->insertDataModelToResponseData();
+    //     $this->aResponseData = [
+    //         'viewModel' => $this->viewModel,
+    //         'new' => true,
+    //         'fieldEnabled' => true,
+    //     ];
+    //     $this->insertDataModelToResponseData();
 
-        return view($this->sViewRoot.'.index-custom', $this->aResponseData);
-    }
+    //     return view($this->sViewRoot.'.index-custom', $this->aResponseData);
+    // }
 
 }

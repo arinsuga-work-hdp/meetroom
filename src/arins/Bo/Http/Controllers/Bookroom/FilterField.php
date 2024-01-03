@@ -10,49 +10,49 @@ use Arins\Facades\ConvertDate;
 trait FilterField
 {
 
-    protected function filters($request) {
+    protected function filters($data) {
 
         // $data = [
-        //     'name' => $request->input('name'),
-        //     'meetingdt' => ConvertDate::strDatetimeToDate($request->input('meetingdt')),
-        //     'startdt' => ConvertDate::strDatetimeToDate($request->input('startdt')),
-        //     'enddt' => ConvertDate::strDatetimeToDate($request->input('enddt')),
-        //     'orderstatus_id' => $request->input('orderstatus_id'),
-        //     'subject' => $request->input('subject'),
-        //     'snack' => $request->input('snack'),
+        //     'name' => $data->input('name'),
+        //     'meetingdt' => ConvertDate::strDatetimeToDate($data->input('meetingdt')),
+        //     'startdt' => ConvertDate::strDatetimeToDate($data->input('startdt')),
+        //     'enddt' => ConvertDate::strDatetimeToDate($data->input('enddt')),
+        //     'orderstatus_id' => $data->input('orderstatus_id'),
+        //     'subject' => $data->input('subject'),
+        //     'snack' => $data->input('snack'),
         // ];
 
-        $data = [];
-        if ($request->input('name') !== null) {
-            $data['name'] = $request->input('name');
+        $result = [];
+        if ($data['name'] !== null) {
+            $result['name'] = $data['name'];
         }
 
-        if ($request->input('meetingdt') !== null) {
-            $data['meetingdt'] = ConvertDate::strDatetimeToDate($request->input('meetingdt'));
+        if ($data['meetingdt'] !== null) {
+            $result['meetingdt'] = $data['meetingdt'];
         }
 
-        if ($request->input('startdt') !== null) {
-            $data['startdt'] = ConvertDate::strDatetimeToDate($request->input('startdt'));
+        if ($data['startdt'] !== null) {
+            $result['startdt'] =$data['startdt'];
         }
         
-        if($request->input('enddt') !== null) {
-            $data['enddt'] = ConvertDate::strDatetimeToDate($request->input('enddt'));
+        if($data['enddt'] !== null) {
+            $result['enddt'] = $data['enddt'];
         }
         
-        if ($request->input('orderstatus_id') !== null) {
-            $data['orderstatus_id'] = $request->input('orderstatus_id');
+        if ($data['orderstatus_id'] !== null) {
+            $result['orderstatus_id'] = $data['orderstatus_id'];
         }
         
-        if ($request->input('subject') !== null) {
-            $data['subject'] = $request->input('subject');
+        if ($data['subject'] !== null) {
+            $result['subject'] = $data['subject'];
         }
 
-        if ($request->input('snack') !== null) {
-            $data['snack'] = $request->input('snack');
+        if ($data['snack'] !== null) {
+            $result['snack'] = $data['snack'];
         }
 
 
-        $filter = $data;
+        $filter = $result;
 
         return $filter;
     }

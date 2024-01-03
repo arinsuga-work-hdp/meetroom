@@ -73,6 +73,16 @@
             <form role="form" id="frmData" method="POST" action="{{ route('bookfaried.index.custom.post') }}" enctype="multipart/form-data">
                 @csrf
 
+                @if ($customError !== null)
+
+                <div class="alert alert-danger alert-dismissible" style="width: 50%;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                    <p>{{$customError}}</p>
+                </div>
+
+                @endif
+
                 <div style="display: flex; justify-content=center;">
                     @include('bo.bookfaried.index-custom-fields')
                 </div>
