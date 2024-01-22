@@ -35,16 +35,16 @@
             <th style="width: 3%;">Tanggal</th>
             <th style="width: 3%;">Mulai</th>
             <th style="width: 3%;">Selesai</th>
-            <th class="time-title">08:00</th>
-            <th class="time-title">09:00</th>
-            <th class="time-title">10:00</th>
-            <th class="time-title">11:00</th>
-            <th class="time-title">12:00</th>
-            <th class="time-title">13:00</th>
-            <th class="time-title">14:00</th>
-            <th class="time-title">15:00</th>
-            <th class="time-title">16:00</th>
-            <th class="time-title">17:00</th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
+            <th class="time-title"></th>
         </tr>
     </thead>
     <tbody>
