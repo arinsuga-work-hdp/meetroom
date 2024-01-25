@@ -166,19 +166,28 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
         return $result;
     }
 
-    function existRoomStartEnd($id, $meetingdt, $startdt, $enddt)
+    function existRoomStartEnd($room_id, $meetingdt, $startdt, $enddt, $id = null)
     {
         $result = -1;
 
-        if ( isset($id) && isset($meetingdt) && isset($startdt) && isset($enddt) ) {
+        if ( isset($room_id) && isset($meetingdt) && isset($startdt) && isset($enddt) ) {
 
             $result = 0;
             $orderstatus_id	= 1; //1 = Open
 
+
             //id
-            $data1 = $this->model::where('room_id', $id);
-            $data2 = $this->model::where('room_id', $id);
-            $data3 = $this->model::where('room_id', $id);
+            $data1 = $this->model::where('room_id', $room_id);
+            $data2 = $this->model::where('room_id', $room_id);
+            $data3 = $this->model::where('room_id', $room_id);
+
+            if ($id != null) {
+
+                $data1 = $data1->where('id', '!=', $id);
+                $data2 = $data2->where('id', '!=', $id);
+                $data3 = $data3->where('id', '!=', $id);
+
+            }
 
             //orederstatus_id
             $data1 = $data1->where('orderstatus_id', $orderstatus_id);

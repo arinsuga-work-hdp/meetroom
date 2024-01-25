@@ -197,10 +197,12 @@ class WebController extends Controller
 
         //get input value by fillable fields
         $data = $request->only($this->data->getFillable()); //get field input
+        $data['id'] = $id;
+        $data = $this->transformFieldUpdate($data);
+
         $upload = $request->file('upload'); //upload file (image/document) ==> if included
         $imageTemp = $request->input('imageTemp'); //temporary file uploaded
         $toggleRemoveImage = $request->input('toggleRemoveImage');
-        $data = $this->transformFieldUpdate($data);
 
         //create temporary uploaded image
         $uploadTemp = Filex::uploadTemp($upload, $imageTemp);
@@ -382,8 +384,6 @@ class WebController extends Controller
     //Overrideable method
     protected function validateStore($data, $validateInput, $validationMessages) {
         $result = true;
-
-        //Custom overrride code here...
 
         return $result;
     }

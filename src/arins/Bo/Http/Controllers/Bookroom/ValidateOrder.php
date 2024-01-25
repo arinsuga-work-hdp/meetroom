@@ -54,11 +54,13 @@ trait ValidateOrder
         } //end if validator
 
         //Custom validation
-        $id = $this->room_id;
+        $room_id = $this->room_id;
+        $id = $data['id'];
         $meetingdt = $data['meetingdt'];
         $startdt = $data['startdt'];
         $enddt = $data['enddt'];
-        $validationData = $this->data->existRoomStartEnd($id, $meetingdt, $startdt, $enddt);
+        $validationData = $this->data->existRoomStartEnd($room_id, $meetingdt, $startdt, $enddt, $id);
+
         if ( ($validationData < 0) || ($validationData > 0) ) {
 
             $result = false;
