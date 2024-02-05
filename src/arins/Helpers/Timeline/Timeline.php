@@ -40,7 +40,7 @@ class Timeline implements TimelineInterface
         $dd = $startTime->format('d');
         $mm = $startTime->format('m');
         $yyyy = $startTime->format('Y');
-        $datetimeString = $dd.'/'.$mm.'/'.$yyyy.' 08:00:00';
+        $datetimeString = $dd.'/'.$mm.'/'.$yyyy.' 06:00:00';
         $datetime = ConvertDate::strDatetimeToDate($datetimeString);
 
         $result = $datetime;

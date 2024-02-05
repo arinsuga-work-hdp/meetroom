@@ -86,6 +86,7 @@ class BookbulatController extends WebController
 
         } //end loop
 
+        $this->aResponseData['gotodetail'] = 'bookbulat';
         return view($this->sViewRoot.'.index-today', $this->aResponseData);
     }
 

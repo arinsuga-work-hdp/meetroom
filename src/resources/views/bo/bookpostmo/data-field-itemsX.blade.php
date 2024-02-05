@@ -56,7 +56,7 @@ margin-left: auto; margin-right:auto;">
       </div>
 
       <div class="form-group">
-        <label>Start (08:00 - 17:00)</label>
+        <label>Start (06:00 - 24:00)</label>
         <div class="row">
           @if ($fieldEnabled == true)
             <div class="input-group col-sm-12 col-md-6">
@@ -76,7 +76,7 @@ margin-left: auto; margin-right:auto;">
       </div> <!-- end form-group -->
 
       <div class="form-group">
-        <label>End (08:00 - 17:00)</label>
+        <label>End (06:00 - 24:00)</label>
         <div class="row">
           @if ($fieldEnabled == true)
             <div class="input-group col-sm-12 col-md-6">

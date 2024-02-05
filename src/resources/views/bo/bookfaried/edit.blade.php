@@ -36,13 +36,13 @@
     @endif
 
 
-    @include('bo.bookfaried.data-field-items')
+    @include('bo.bookroom.data-field-items')
 </form>
 
 @endsection
 
 @section('js')
 
-    @include('bo.bookfaried._script')
+    @include('bo.bookroom._script')
 
 @endsection

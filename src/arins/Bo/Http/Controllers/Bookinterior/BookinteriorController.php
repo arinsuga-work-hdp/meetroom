@@ -86,6 +86,7 @@ class BookinteriorController extends WebController
 
         } //end loop
 
+        $this->aResponseData['gotodetail'] = 'bookinterior';
         return view($this->sViewRoot.'.index-today', $this->aResponseData);
     }
 

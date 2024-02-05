@@ -61,7 +61,7 @@
 @endsection
 
 @section('content')
-    @include('bo.bookfounder.data-field-items')
+    @include('bo.bookroom.data-field-items')
 @endsection
 
 @section('style')

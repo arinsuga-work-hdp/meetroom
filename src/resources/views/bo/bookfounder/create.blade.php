@@ -36,7 +36,7 @@
     @endif
 
     <div style="display: flex; justify-content=center;">
-        @include('bo.bookfounder.data-field-items')
+        @include('bo.bookroom.data-field-items')
     </div>
 </form>
 
@@ -44,6 +44,6 @@
 
 @section('js')
 
-    @include('bo.bookfounder._script')
+    @include('bo.bookroom._script')
 
 @endsection

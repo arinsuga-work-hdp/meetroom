@@ -37,7 +37,7 @@
 
 
     <div style="display: flex; justify-content=center;">
-        @include('bo.bookfaried.data-field-items')
+        @include('bo.bookroom.data-field-items')
     </div>
 </form>
 
@@ -45,6 +45,6 @@
 
 @section('js')
 
-    @include('bo.bookfaried._script')
+    @include('bo.bookroom._script')
 
 @endsection

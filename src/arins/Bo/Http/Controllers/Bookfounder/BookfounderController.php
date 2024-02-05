@@ -86,6 +86,7 @@ class BookfounderController extends WebController
 
         } //end loop
 
+        $this->aResponseData['gotodetail'] = 'bookfounder';
         return view($this->sViewRoot.'.index-today', $this->aResponseData);
     }
 

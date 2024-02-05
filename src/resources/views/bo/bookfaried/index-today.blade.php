@@ -68,7 +68,7 @@
 
 
         <div>
-            @include('bo.bookfaried.index-today-items')
+            @include('bo.bookroom.index-today-items')
         </div>
 
 @endsection

@@ -24,9 +24,9 @@
         enableTime: true,
         noCalendar: true,
         dateFormat: "{{ config('a1.datejs.timeshort') }}",
-        defaultHour: 8,
-        minTime: '08:00',
-        maxTime: '17:00',
+        defaultHour: 6,
+        minTime: '06:00',
+        maxTime: '23:59',
         time_24hr: true
     });
 
@@ -38,9 +38,9 @@
         enableTime: true,
         noCalendar: true,
         dateFormat: "{{ config('a1.datejs.timeshort') }}",
-        defaultHour: 8,
-        minTime: '08:00',
-        maxTime: '17:00',
+        defaultHour: 6,
+        minTime: '06:00',
+        maxTime: '23:59',
         time_24hr: true
     });
 

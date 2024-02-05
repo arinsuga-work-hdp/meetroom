@@ -50,7 +50,7 @@
 @endsection
 
 @section('content')
-    @include('bo.bookbulat.data-field-items')
+    @include('bo.bookroom.data-field-items')
 @endsection
 
 @section('style')

@@ -87,8 +87,8 @@ class BookpostmoController extends WebController
         } //end loop
 
 
-       // return dd($this->viewModel->data);
 
+        $this->aResponseData['gotodetail'] = 'bookpostmo';
         return view($this->sViewRoot.'.index-today', $this->aResponseData);
     }
 

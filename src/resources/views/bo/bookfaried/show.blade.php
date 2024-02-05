@@ -81,7 +81,7 @@
 @endsection
 
 @section('content')
-    @include('bo.bookfaried.data-field-items')
+    @include('bo.bookroom.data-field-items')
 @endsection
 
 @section('style')

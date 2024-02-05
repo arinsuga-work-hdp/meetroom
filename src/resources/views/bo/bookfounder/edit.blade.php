@@ -35,13 +35,13 @@
 
     @endif
 
-    @include('bo.bookfounder.data-field-items')
+    @include('bo.bookroom.data-field-items')
 </form>
 
 @endsection
 
 @section('js')
 
-    @include('bo.bookfounder._script')
+    @include('bo.bookroom._script')
 
 @endsection

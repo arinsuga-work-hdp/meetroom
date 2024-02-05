@@ -7,7 +7,7 @@
 
     .progress {
         height:15px;
-        width:0.17%;
+        width:0.09%; /** (Rumus lebar kolom / jumlah jam) / 60 */
     }
 
     .progress-run {
@@ -20,7 +20,7 @@
     }
 
     .time-title {
-        width: 8%;
+        width: 80%;
         text-align: center;
     }
 
@@ -35,22 +35,13 @@
             <th style="width: 3%;">Tanggal</th>
             <th style="width: 3%;">Mulai</th>
             <th style="width: 3%;">Selesai</th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
-            <th class="time-title"></th>
+            <th class="time-title">Progress</th>
         </tr>
     </thead>
     <tbody>
 
         @foreach ($viewModel->data as $key => $item)
-            <tr onclick="window.location.assign('{{ route('bookpostmo.show', ['bookpostmo' => $item->id]) }}');">
+            <tr onclick="window.location.assign('{{ route($gotodetail . '.show', [$gotodetail => $item->id]) }}');">
                 <td>{{ $key+1 }}</td>
                 <td>{{ $item->name }}</td>
                 <td>{{ $item->subject }}</td>
@@ -65,7 +56,7 @@
                     <div class="text-center">{{ \Arins\Facades\Formater::time($item->enddt) }}</div>
                 </td>
 
-                <td colspan="10">
+                <td>
 
                     <div class="progress-container">
                         @for ($i=0; $i<=$item->progressStart; $i++)
@@ -75,7 +66,6 @@
                         @for ($i=0; $i<=$item->progressRun; $i++)
                         <div class="progress progress-run"></div>
                         @endfor
-
                     </div>
 
                 </td>

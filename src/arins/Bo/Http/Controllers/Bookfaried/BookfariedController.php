@@ -97,8 +97,7 @@ class BookfariedController extends WebController
         } //end loop
 
 
-       // return dd($this->viewModel->data);
-
+        $this->aResponseData['gotodetail'] = 'bookfaried';
         return view($this->sViewRoot.'.index-today', $this->aResponseData);
     }
 

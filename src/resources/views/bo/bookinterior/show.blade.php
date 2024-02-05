@@ -50,7 +50,7 @@
 @endsection
 
 @section('content')
-    @include('bo.bookinterior.data-field-items')
+    @include('bo.bookroom.data-field-items')
 @endsection
 
 @section('style')
@@ -106,7 +106,7 @@
 
 @endsection
 
-@include('bo.bookinterior.modal-delete')    
-@include('bo.bookinterior.modal-approve')
-@include('bo.bookinterior.modal-reject')
-@include('bo.bookinterior.modal-cancel')
+@php($baseRoute='bookinterior')
+@include('bo.bookroom.modal-approve')    
+@include('bo.bookroom.modal-cancel')    
+@include('bo.bookroom.modal-delete')    
