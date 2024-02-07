@@ -25,15 +25,7 @@
 <form role="form" id="frmData" method="POST" action="{{ route('bookfounder.store') }}" enctype="multipart/form-data">
     @csrf
 
-    @if ($errors->first('custom') !== '')
-
-        <div class="alert alert-danger alert-dismissible" style="width: 50%;">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-            <p>{{$errors->first('custom')}}</p>
-        </div>
-
-    @endif
+    @include('bo.bookroom.error-message')
 
     <div style="display: flex; justify-content=center;">
         @include('bo.bookroom.data-field-items')
