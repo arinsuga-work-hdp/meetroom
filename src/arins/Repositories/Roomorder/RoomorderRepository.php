@@ -202,7 +202,8 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
             $data1 = $data1->where('startdt', '<=', $startdt);
             $data1 = $data1->where('enddt', '>', $startdt);
             //enddt
-            $data2 = $data2->where('startdt', '<=', $enddt);
+            // $data2 = $data2->where('startdt', '<=', $enddt);
+            $data2 = $data2->where('startdt', '<', $enddt);
             $data2 = $data2->where('enddt', '>=', $enddt);
 
             //startdt - enddt
@@ -212,6 +213,15 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
             $data1 = $data1->get();
             $data2 = $data2->get();
             $data3 = $data3->get();
+
+
+            // return dd([
+            //     'periode' => ['$startdt' => $startdt, '$enddt' => $enddt],
+            //     '$data1' => $data1,
+            //     '$data2' => $data2,
+            //     '$data3' => $data3
+            // ]);
+
             $result = count($data1);
             if ($result <= 0) {
                 
