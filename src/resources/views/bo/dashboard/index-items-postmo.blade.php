@@ -1,13 +1,13 @@
 <table id="filter" style="width: 90%;" class="table table-hover-pointer table-head-fixed">
     <thead>
         <tr>
-            <th style="width: 5%;"></th>
-            <th style="width: 5%;">Status</th>
-            <th style="width: 5%;">Tanggal</th>
-            <th style="width: 5%;">Mulai</th>
-            <th style="width: 5%;">Selesai</th>
-            <th style="width: 30%;">Nama</th>
-            <th style="width: 35%;">Subject</th>
+            <th style="width: 3%;"></th>
+            <th style="width: 3%;">Status</th>
+            <th style="width: 3%;">Tanggal</th>
+            <th style="width: 3%;">Mulai</th>
+            <th style="width: 3%;">Selesai</th>
+            <th style="width: 25%;">Nama</th>
+            <th style="width: 50%;">Subject</th>
         </tr>
     </thead>
     <tbody>

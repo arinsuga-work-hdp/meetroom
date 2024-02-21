@@ -63,13 +63,28 @@ class DashboardController extends WebController
      */
     public function index()
     {
+        // $startdt = Carbon::today();
+        // $enddt = Carbon::today();
+        // $weekDay = date('w');
+        // $weekDayAdd = (6 - $weekDay)+1;
+        // $enddt = $startdt->addDays($weekDayAdd);
+        // return dd([
+        //     '$startdt' => $startdt,
+        //     '$enddt' => $enddt,
+        //     '$weekDay' => $weekDay,
+        //     '$weekDayAdd' => $weekDayAdd
+        // ]);
+
+
         $this->viewModel = Response::viewModel();
         $this->viewModel->data = null;
-        $this->dataPostmo = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->postmo_id);
-        $this->dataFounder = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->founder_id);
-        $this->dataInterior = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->interior_id);
-        $this->dataRbulat = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->rbulat_id);
-        $this->dataFaried = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->faried_id);
+
+        //new code
+        $this->dataPostmo = $this->data->byRoomWeekOrderByIdAndStartdt($this->postmo_id);
+        $this->dataFounder = $this->data->byRoomWeekOrderByIdAndStartdt($this->founder_id);
+        $this->dataInterior = $this->data->byRoomWeekOrderByIdAndStartdt($this->interior_id);
+        $this->dataRbulat = $this->data->byRoomWeekOrderByIdAndStartdt($this->rbulat_id);
+        $this->dataFaried = $this->data->byRoomWeekOrderByIdAndStartdt($this->faried_id);
         
 
         $this->aResponseData = [

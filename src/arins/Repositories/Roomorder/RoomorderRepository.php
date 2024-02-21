@@ -240,4 +240,64 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
         return $result;
     }
 
+    public function byRoomWeekOrderByIdAndStartdtDesc($id, $take=null)
+    {
+        $startdt = Carbon::today();
+        $enddt = Carbon::today();
+        $weekDay = date('w');
+
+        if ($weekDay != 0) {
+
+            $weekDayAdd = (6 - $weekDay)+1;
+            $enddt = $enddt->addDays($weekDayAdd);
+
+        } //end if
+
+        if ($take == null) {
+
+            return $this->model::where('room_id', $id)
+            ->where('orderstatus_id', 1)
+            ->where('meetingdt', '>=', $startdt)
+            ->where('meetingdt', '<=', $enddt)
+            ->orderBy('startdt', 'desc')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        } else {
+            return $this->model::where('room_id', $id)
+            ->take($take)
+            ->get();
+        }
+    }
+
+    public function byRoomWeekOrderByIdAndStartdt($id, $take=null)
+    {
+        $startdt = Carbon::today();
+        $enddt = Carbon::today();
+        $weekDay = date('w');
+
+        if ($weekDay != 0) {
+
+            $weekDayAdd = (6 - $weekDay)+1;
+            $enddt = $enddt->addDays($weekDayAdd);
+
+        } //end if
+
+        if ($take == null) {
+
+            return $this->model::where('room_id', $id)
+            ->where('orderstatus_id', 1)
+            ->where('meetingdt', '>=', $startdt)
+            ->where('meetingdt', '<=', $enddt)
+            ->orderBy('startdt')
+            ->orderBy('id')
+            ->get();
+
+        } else {
+            return $this->model::where('room_id', $id)
+            ->take($take)
+            ->get();
+        }
+    }
+
 }

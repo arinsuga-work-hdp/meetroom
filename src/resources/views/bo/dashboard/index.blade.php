@@ -13,7 +13,7 @@
     <div style="margin-top: 10px;">
 
             <div class="card">
-              <div class="card-header border-0">
+              <div class="card-header border-1 bg-info">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title">Lantai Basement</h3>
                 </div>
@@ -28,43 +28,40 @@
             <!-- /.card -->
 
             <div class="card">
-              <div class="card-header border-0">
+              <div class="card-header border-1 bg-success">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title">Lantai 1</h3>
                 </div>
               </div>
               <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                          <div class="card">
+                              <div class="card-body">
+                                <a href="{{ route('bookfaried.create') }}">Booking Ruang Faried</a>
+                                @include('bo.dashboard.index-items-faried')
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                           <div class="card">
-                            <div class="card-body">
-
-                              <a href="{{ route('bookfaried.create') }}">Booking Ruang Faried</a>
-                              @include('bo.dashboard.index-items-faried')
-
-                            </div>
+                              <div class="card-body">
+                                  <a href="{{ route('bookpostmo.create') }}">Booking Ruang Postmo</a>
+                                  @include('bo.dashboard.index-items-postmo')
+                              </div>
                           </div>
                         </div>
 
                         <div class="col-sm-12 col-md-6">
                           <div class="card">
-                            <div class="card-body">
-
-                              <a href="{{ route('bookpostmo.create') }}">Booking Ruang Postmo</a>
-                              @include('bo.dashboard.index-items-postmo')
-                              
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6">
-                          <div class="card">
-                            <div class="card-body">
-
-                              <a href="{{ route('bookpostmo.create') }}">Booking Ruang Bulat</a>
-                              @include('bo.dashboard.index-items-rbulat')
-                              
-                            </div>
+                              <div class="card-body">
+                                <a href="{{ route('bookpostmo.create') }}">Booking Ruang Bulat</a>
+                                @include('bo.dashboard.index-items-rbulat')
+                              </div>
                           </div>
                         </div>
                         
@@ -74,7 +71,7 @@
             <!-- /.card -->
 
             <div class="card">
-              <div class="card-header border-0">
+              <div class="card-header border-1 bg-purple">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title">Lantai 2</h3>
                 </div>
