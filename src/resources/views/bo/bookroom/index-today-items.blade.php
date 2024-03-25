@@ -30,7 +30,7 @@
     <thead>
         <tr>
             <th style="width: 1%;">No</th>
-            <th style="width: 5%;">Nama</th>
+            <th style="width: 5%;">Nama Pemesan</th>
             <th style="width: 5%;">Subject</th>
             <th style="width: 3%;">Tanggal</th>
             <th style="width: 3%;">Mulai</th>

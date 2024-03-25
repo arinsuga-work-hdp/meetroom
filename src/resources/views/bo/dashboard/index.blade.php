@@ -30,7 +30,7 @@
             <div class="card">
               <div class="card-header border-1 bg-success">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Lantai 1</h3>
+                  <h3 class="card-title">Lantai Dasar</h3>
                 </div>
               </div>
               <div class="card-body">
@@ -73,7 +73,7 @@
             <div class="card">
               <div class="card-header border-1 bg-purple">
                 <div class="d-flex justify-content-between">
-                  <h3 class="card-title">Lantai 2</h3>
+                  <h3 class="card-title">Lantai 1</h3>
                 </div>
               </div>
               <div class="card-body" style="overflow-x: scroll !important;">

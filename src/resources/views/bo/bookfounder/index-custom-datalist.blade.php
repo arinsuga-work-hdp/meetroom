@@ -6,7 +6,7 @@
             <th style="width: 5%;">Tanggal</th>
             <th style="width: 5%;">Mulai</th>
             <th style="width: 5%;">Selesai</th>
-            <th style="width: 10%;">Nama</th>
+            <th style="width: 10%;">Nama Pemesan</th>
             <th style="width: 15%;">Subject</th>
             <th style="width: 20%;">Keterangan</th>
             <th style="width: 30%;">Deskripsi</th>
