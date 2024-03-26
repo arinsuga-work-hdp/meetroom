@@ -23,20 +23,17 @@
             <tr onclick="window.location.assign('{{ route('bookbulat.show', ['bookbulat' => $item->id]) }}');">
                 <td></td>
                 <td>
-                    @if ($item->orderStatus->id == 4)
+                    @if ($item->orderstatus_id == "4")
 
                         <div class="badge bg-orange">{{ $item->orderStatus->name }}</div>
 
-                    @elseif ($item->orderStatus->id == 5)
+                    @elseif ($item->orderstatus_id == "5")
 
                         <div class="badge bg-success">Done</div>
 
                     @else
-
                         {{ $item->orderStatus->name }}
-                        
                     @endif
-
                 </td>
 
                 <td>
