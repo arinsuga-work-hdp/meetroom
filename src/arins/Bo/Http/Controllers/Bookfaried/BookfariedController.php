@@ -79,7 +79,8 @@ class BookfariedController extends WebController
     public function indexToday()
     {
         $this->viewModel = Response::viewModel();
-        $this->viewModel->data = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->room_id);
+        // $this->viewModel->data = $this->data->byRoomTodayOrderByIdAndStartdtDesc($this->room_id);
+        $this->viewModel->data = $this->data->byRoomTodayOrderByStartdt($this->room_id);
 
         $this->aResponseData = ['viewModel' => $this->viewModel];
 

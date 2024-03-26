@@ -100,6 +100,23 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
         }
     }
 
+    public function byRoomTodayOrderByStartdt($id, $take=null)
+    {
+        if ($take == null) {
+
+            return $this->model::where('room_id', $id)
+            ->where('orderstatus_id', 1)
+            ->whereDate('meetingdt', Carbon::today())
+            ->orderBy('startdt')
+            ->get();
+
+        } else {
+            return $this->model::where('room_id', $id)
+            ->take($take)
+            ->get();
+        }
+    }
+
     public function byRoomTodayOrderByIdAndStartdtDesc($id, $take=null)
     {
         if ($take == null) {
