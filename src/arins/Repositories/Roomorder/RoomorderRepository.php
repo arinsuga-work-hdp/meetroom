@@ -6,6 +6,8 @@ use Arins\Repositories\BaseRepository;
 use Arins\Repositories\Roomorder\RoomorderRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Arins\Facades\Formater;
+use Arins\Facades\Meetroom\Orderstatus;
 
 class RoomorderRepository extends BaseRepository implements RoomorderRepositoryInterface
 {
@@ -302,8 +304,9 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
 
         if ($take == null) {
 
-            return $this->model::where('room_id', $id)
-            ->where('orderstatus_id', 1)
+            $data = $this->model::where('room_id', $id)
+            // ->where('orderstatus_id', 1)
+            ->whereIn('orderstatus_id', [1, 4])
             ->where('meetingdt', '>=', $startdt)
             ->where('meetingdt', '<=', $enddt)
             ->orderBy('startdt')
@@ -311,10 +314,29 @@ class RoomorderRepository extends BaseRepository implements RoomorderRepositoryI
             ->get();
 
         } else {
-            return $this->model::where('room_id', $id)
+            $data =  $this->model::where('room_id', $id)
             ->take($take)
             ->get();
         }
+
+        
+
+        return $this->scanDone($data);
+    }
+
+    protected function scanDone($scanData)
+    {
+        foreach ($scanData as $item) {
+            
+            if ($item->orderstatus_id == 1) {
+
+                $item->orderstatus_id = Orderstatus::statusDone($item->orderstatus_id, $item->enddt, Carbon::now());
+                
+            } //end if
+
+        } //end
+
+        return $scanData;
     }
 
 }

@@ -17,5 +17,6 @@ class OrderstatusTableSeeder extends Seeder
         DB::table("orderstatus")->insert([ "id" => 2, "name" => "Approve", "description" => "Approve", "image" => null, "numsort" => 20, "status" => 1 ]);  
         DB::table("orderstatus")->insert([ "id" => 3, "name" => "Reject", "description" => "Reject", "image" => null, "numsort" => 30, "status" => 1 ]);  
         DB::table("orderstatus")->insert([ "id" => 4, "name" => "Canceled", "description" => "Canceled", "image" => null, "numsort" => 40, "status" => 1 ]);  
+        DB::table("orderstatus")->insert([ "id" => 5, "name" => "Done", "description" => "Done", "image" => null, "numsort" => 50, "status" => 1 ]);  
     }
 }
